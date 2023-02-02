@@ -6,16 +6,13 @@ import HomeScreen from "../Screens/LoginStackScreen/HomeScreen";
 import KnightsCashStack from "./KnightsCashStack.js";
 import LibraryStack from "./LibraryStack";
 
-// For testing
-import LibraryFees from "../Screens/LibraryStackScreens/LibraryFees";
-import LibraryLoans from "../Screens/LibraryStackScreens/LibraryLoans";
-import LibraryReq from "../Screens/LibraryStackScreens/LibraryReq";
+//
 
 
 
-export default function BottomNav(){
+export default function HomeNav(){
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName = "Home" screenOptions={{headerShown: false} }>
      <Tab.Screen name="Home" component={HomeScreen} />
      <Tab.Screen name ="KnightsCash" component={KnightsCashStack}/>
      <Tab.Screen name="Library" component={LibraryStack}/>
