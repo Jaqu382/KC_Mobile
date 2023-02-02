@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet} from "react-native"
+import { View, Text, StyleSheet, Pressable} from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import { Card } from '@rneui/themed';
 import FormButton from "../../components/FormButton";
@@ -8,7 +8,6 @@ export default function KnightsCashAdd({navigation}){
     
     return(
         <SafeAreaView style = {styles.container}>
-        <View >
             <View>
                 <Text>ADD KNIGHTS CASH FUND</Text>
             </View>
@@ -43,10 +42,10 @@ export default function KnightsCashAdd({navigation}){
                 </View>
             </Card>
             <View style = {{paddingTop: 10}}>
-            {/* Incorporate validation and data management */}
-            <FormButton title = "Add Funds"></FormButton>
+                <Pressable style = {styles.button}>
+                    <Text>Add Funds</Text>
+                </Pressable>
             </View>
-        </View>
         </SafeAreaView>
     )
 }
@@ -60,19 +59,25 @@ const styles = StyleSheet.create({
     },
     formCard: {
         backgroundColor: "#FDF1BC",
-        shadowColor: "#000000",
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        shadowOffset: {
-          height: 1,
-          width: 1
-        }
+        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
       },
       fieldInput: {
         padding: 5,
         borderRadius: 5,
         backgroundColor: '#fff',
         fontSize: 15,
-        color: "#D4D4D4"
+        color: "#000",
+        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
       },
+      button: {
+        width: 250,
+        height:35,
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        elevation: 3,
+        backgroundColor: "#ffc904",
+        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
+  },
     })

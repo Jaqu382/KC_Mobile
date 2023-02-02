@@ -9,7 +9,7 @@ import LibraryReq from '../Screens/LibraryStackScreens/LibraryReq';
 const Stack = createStackNavigator();
 export default function LibraryStack() {
     return(
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="Library" component={LibraryMain} />
             <Stack.Screen name="Loans" component={LibraryLoans} />
             <Stack.Screen name="Requests" component={LibraryReq} />

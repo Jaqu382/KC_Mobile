@@ -8,7 +8,7 @@ import
 const Stack = createStackNavigator();
 export default function KnightsCashStack() {
     return(
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="Main" component= {KnightsCashMain}/>
             <Stack.Screen name="Balance" component= {KnightsCashBalance}/>
             <Stack.Screen name="Add" component={KnightsCashAdd}/>

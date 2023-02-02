@@ -79,18 +79,20 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       backgroundColor: '#fff',
       fontSize: 15,
-      color: "#D4D4D4"
+      color: "#D4D4D4",
+      boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
     },
     loginInputFocus: {
       padding: 10,
       borderRadius: 5,
       backgroundColor: '#fff',
       fontSize: 15,
-      color: "#000"
+      color: "#000",
+      boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
     },
     loginCard: {
       backgroundColor: "#FDF1BC",
-      boxShadow: "10px 10px 17px -12px rgba(0,0,0,0.75)"
+      boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
     },
     hyperlink: {
       color: "blue",

@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
         height: 250,
         width: 200,
         alignContent: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
     },
 })

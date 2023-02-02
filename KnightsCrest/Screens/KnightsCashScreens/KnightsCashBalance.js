@@ -60,13 +60,7 @@ const styles = StyleSheet.create({
         Height: "fit-content",
         width: 240,
         backgroundColor: "#FDF1BC",
-        shadowColor: "#000000",
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        shadowOffset: {
-          height: 1,
-          width: 1
-        }
+        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
       },
     horizontalFlex: {
         flexDirection: "row"
