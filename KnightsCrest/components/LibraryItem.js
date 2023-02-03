@@ -9,7 +9,7 @@ export default function LibraryItem(props){
     // Format date
     console.log(dueDate)
     let myDate = new Date(dueDate);
-    let formatDate = format(myDate, 'mm/dd/yyyy')
+    let formatDate = format(myDate, 'MM/dd/yyyy')
 
     return(
         <View>

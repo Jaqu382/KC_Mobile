@@ -12,7 +12,7 @@ export default function LoginNav() {
     return(
           <LoginStack.Navigator initialRouteName = "Login" screenOptions={{headerShown: false} }>
             <LoginStack.Screen name="Login" component={Login} />
-            <LoginStack.Screen name='Home' component={DrawerNav}/>
+            <LoginStack.Screen name='Main' component={DrawerNav}/>
           </LoginStack.Navigator>
           );
 

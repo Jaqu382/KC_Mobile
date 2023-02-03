@@ -20,8 +20,8 @@ export default function IDback(props){
 
 const styles = StyleSheet.create({
     IDcard:{
-        height: 250,
-        width: 200,
+        height: 270,
+        width: 250,
         alignContent: "center",
         justifyContent: "center",
         boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"

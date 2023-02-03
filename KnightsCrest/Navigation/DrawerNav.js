@@ -8,7 +8,7 @@ import LoginNav from './LoginNav';
 
 const Drawer = createDrawerNavigator();
 
-export default function DrawerNav(){
+export default function DrawerNav({route, navigation}){
   return (
     <Drawer.Navigator initialRouteName="Home" useLegacyImplementation={false}>
       <Drawer.Screen name="Home" component={HomeNav} />

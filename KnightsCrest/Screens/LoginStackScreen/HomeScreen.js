@@ -2,12 +2,21 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {StyleSheet, View, Animated, Pressable, Text} from 'react-native';
 import { useRef, useState } from 'react'; 
 import IDfront from '../../components/IDfront';
-import IDback from '../../components/IDback';
+import IDback from '../../components/IDback';  
 
-export default function HomeScreen(props) {
-  const {fName, lName, kCashNum, libNumber, UCFID, caste, expDate} = props
+export default function HomeScreen({navigation, route}) {
+  // Variables simulated as hard code for testing
+  const fName= "Ima";
+  const lName = "Knight";
+  const kCashNum = "6009 1921 5309 4359";
+  const libNumber = "2 21031 52662067" ;
+  const UCFID = "1234567";
+  const caste = "STUDENT";
+  const expDate = "2025-03-31T00:00:00" ;
+  const imagePath = "../../assets/images/imaKnight.jpg"
+  // Const {fName, LName, kCashNumber, libNumber, UCFID, caste, expDate} = route.params
 
-  //Create an animation for turning the card over
+  // Flip animation
   const animate = useRef(new Animated.Value(0));
   const [isFlipped, setIsFlipped] = useState(false);
   const handleFlip = () => {
@@ -25,9 +34,7 @@ export default function HomeScreen(props) {
     inputRange: [0, 180],
     outputRange: ['180deg','360deg'],
   })
-
-  
-  
+    
     return (
       <SafeAreaView style = {styles.container}>
         <View>
@@ -35,16 +42,23 @@ export default function HomeScreen(props) {
               <IDfront
               isFlipped= {isFlipped}
               fName= {fName}
-              lName = {lName} 
-              kCashNum ={kCashNum} 
-              libNumber = {libNumber} 
+              lName = {lName}
+              kCashNum = {kCashNum}
+              libNumber = {libNumber}
               UCFID = {UCFID}
               caste = {caste}
-              expDate = {expDate} />
+              expDate = {expDate}/>
             </Animated.View>
             <Animated.View style = {[{transform: [{rotateY: interpolateBack}]}, styles.back, styles.hidden]}>
               <IDback
-              UCFID = {UCFID}/>
+                isFlipped= {isFlipped}
+                fName= {fName}
+                lName = {lName}
+                kCashNum = {kCashNum}
+                libNumber = {libNumber}
+                UCFID = {UCFID}
+                caste = {caste}
+                expDate = {expDate}/>
             </Animated.View>
       </View>
       <View style = {{paddingTop: 10}}>
@@ -111,7 +125,4 @@ export default function HomeScreen(props) {
       backgroundColor: 'white',
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
     }
-
-
-
 });

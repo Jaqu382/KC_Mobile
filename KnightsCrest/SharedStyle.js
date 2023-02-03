@@ -14,7 +14,8 @@ const sharedStyles = StyleSheet.create({
         fontSize: 20
     },
     bodyText:{
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: "GothamBook"
     },
     horizontalFlex: {
         flexDirection: "row",
