@@ -10,8 +10,31 @@ export default function SettingsScreen(){
                 <Text>Settings</Text>
             </View>
             <View>
-                <Text>Font Size</Text>
-                <View></View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>Font Size</Text>
+                </View>
+                <View style = {{flexDirection: "row"}}>
+                <Pressable 
+                style = {[styles.fontSizeButton, {borderTopLeftRadius: 5, borderBottomLeftRadius: 5}]}>
+                    <Text>A</Text>
+                </Pressable>
+                <Pressable 
+                style = {styles.fontSizeButton}>
+                    <Text>A</Text>
+                </Pressable>
+                <Pressable 
+                style = {styles.fontSizeButton}>
+                    <Text>A</Text>
+                </Pressable>
+                <Pressable 
+                style = {styles.fontSizeButton}>
+                    <Text>A</Text>
+                </Pressable>
+                <Pressable 
+                style = {[styles.fontSizeButton, {borderTopRightRadius: 5, borderBottomRightRadius: 5}]}>
+                    <Text>A</Text>
+                </Pressable>
+                </View>
             </View>
             <View>
                 <Text>Accessibility</Text>
