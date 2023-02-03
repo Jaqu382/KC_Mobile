@@ -1,33 +1,42 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image} from "react-native";
 import { Card } from "@rneui/base";
-
+import format from "date-fns/format";
+import sharedStyles from "../SharedStyle";
 
 export default function IDfront(props){
     const {fName, lName, kCashNum, libNumber, UCFID, caste, expDate} = props;
 
+    let myDate = new Date(expDate)  ;
+    let formatDate = format(myDate, 'MM/dd/yyyy')
+
     return(
         <>
             <Card containerStyle = {styles.IDcard}>
-                <View style = {styles.nameplate}>
-                <Text style={styles.nameText}>{fName} {lName}</Text>
-                </View>
+                <View style = {{backgroundColor: "black", borderRadius: 10, padding: 5 }}>
+                <Card.Title style = {{color: "white"}}>{fName} {lName}</Card.Title>
+                <View style = {{backgroundColor: "white", padding: 5, borderRadius: 10}}>
                 <View>
-                    <Text>{expDate}</Text>
+                    <Image style = {styles.cardProfilePic} source = {require("../assets/images/imaKnight.jpg")} alt = "Ima Knight"/>
+                </View>
+               <View>
+                    <Text style = {sharedStyles.bodyText}>{formatDate}</Text>
                 </View>
                 <View style = {styles.userProps}>
-                    <Text>Icon </Text>
-                    <Text>{kCashNum}</Text>
+                <Image style = {styles.cardProfilePic} source = {require("../assets/images/imaKnight.jpg")} alt = "Ima Knight"/>
+                    <Text style = {sharedStyles.bodyText}>{kCashNum}</Text>
                 </View>
                 <View style = {styles.userProps}>
-                    <Text>LIB </Text>
-                    <Text>{libNumber}</Text>
+                    <Text style = {sharedStyles.bodyText}>LIB </Text>
+                    <Text style = {sharedStyles.bodyText}>{libNumber}</Text>
                 </View>
                 <View style = {styles.userProps}>
-                    <Text>UCF ID </Text>
-                    <Text>{kCashNum}</Text>
+                    <Text style = {sharedStyles.bodyText}>UCF ID </Text>
+                    <Text style = {sharedStyles.bodyText}>{kCashNum}</Text>
                 </View>
-                <View>
-                    <Text>{caste}</Text>
+                <View >
+                    <Text style = {{fontFamily: "GothamBold", color: "#378805", fontWeight: "bold"}}>{caste}</Text>
+                </View>
+                </View>
                 </View>
             </Card>
         </>
@@ -36,9 +45,16 @@ export default function IDfront(props){
 
 const styles = StyleSheet.create({
     IDcard:{
-        height: 250,
-        width: 200,
+        flex: 1,
+        height: 270,
+        width: 250,
         boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
+    },
+    cardProfilePic: {
+        alignContent: "center",
+        width: 80,
+        height: 80
+
     },
     IDcontainer: {
         flexDirection: "row"
