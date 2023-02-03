@@ -8,9 +8,15 @@ import LibraryStack from "./LibraryStack";
 
 export default function HomeNav(){
   return (
-    <Tab.Navigator initialRouteName = "Home" screenOptions={{headerShown: false} }>
+    <Tab.Navigator initialRouteName = "Home" screenOptions={{
+      headerShown: false,
+      tabBarStyle: {
+        backgroundColor:"#ffc904",
+        padding: 20
+      }
+      } }>
+    <Tab.Screen name ="KnightsCash" component={KnightsCashStack}/>
      <Tab.Screen name="Home" component={HomeScreen} />
-     <Tab.Screen name ="KnightsCash" component={KnightsCashStack}/>
      <Tab.Screen name="Library" component={LibraryStack}/>
     </Tab.Navigator>
   );
