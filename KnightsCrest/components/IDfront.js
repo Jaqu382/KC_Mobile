@@ -19,10 +19,10 @@ export default function IDfront(props){
                     <Image style = {styles.cardProfilePic} source = {require("../assets/images/imaKnight.jpg")} alt = "Ima Knight"/>
                 </View>
                <View>
-                    <Text style = {sharedStyles.bodyText}>{formatDate}</Text>
+                <Text style = {sharedStyles.bodyText}>{formatDate}</Text>
                 </View>
                 <View style = {styles.userProps}>
-                <Image style = {styles.cardProfilePic} source = {require("../assets/images/imaKnight.jpg")} alt = "Ima Knight"/>
+                    <Image style = {styles.myIcon} source = {require("../assets/images/KnightsCashNoTextLogo.png")} alt = "Knights Cash Logo"/>
                     <Text style = {sharedStyles.bodyText}>{kCashNum}</Text>
                 </View>
                 <View style = {styles.userProps}>
@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
         height: 270,
         width: 250,
         boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
+    },
+    myIcon: {
+        height: 80,
+        width: 80
     },
     cardProfilePic: {
         alignContent: "center",
