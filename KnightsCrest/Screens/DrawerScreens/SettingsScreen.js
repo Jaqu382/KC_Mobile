@@ -5,14 +5,11 @@ import { View, Text, SafeAreaView, Switch, StyleSheet, Pressable } from "react-n
 import sharedStyles from "../../SharedStyle";
 
 // Dark Mode imports
-import { ThemeContext } from "../../AppNavContainer";
-import MyDefaultTheme from "../../AppNavContainer"
 
 export default function SettingsScreen(){
 
     // Set up dark mode
     const [isEnabled, setIsEnabled] = useState(false);
-    const { setTheme, theme } = React.useContext(ThemeContext);
 
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 

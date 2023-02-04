@@ -17,6 +17,10 @@ const sharedStyles = StyleSheet.create({
         fontSize: 16,
         fontFamily: "GothamBook"
     },
+    smallText:{
+        fontSize: 14,
+        fontFamily: "GothamBook"
+    },
     horizontalFlex: {
         flexDirection: "row",
         justifyContent: "space-between"

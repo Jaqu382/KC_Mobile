@@ -1,8 +1,9 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {StyleSheet, View, Animated, Pressable, Text} from 'react-native';
+import {StyleSheet, View, Animated, Pressable, Text, Image} from 'react-native';
 import { useRef, useState } from 'react'; 
 import IDfront from '../../components/IDfront';
 import IDback from '../../components/IDback';  
+import sharedStyles from '../../SharedStyle';
 
 export default function HomeScreen({navigation, route}) {
   // Variables simulated as hard code for testing
@@ -63,21 +64,25 @@ export default function HomeScreen({navigation, route}) {
       </View>
       <View style = {{paddingTop: 10}}>
       <Pressable style = {styles.button} onPress = {handleFlip}>
-              <Text>Scan Card</Text>
+              <Text>Turn Card</Text>
       </Pressable>
       </View>
       <View style ={{paddingTop: 10}}>
       <View style = {styles.personalInfoContainer}>
         <View>
-          <Text>{caste}</Text>
+          <Text style = {[sharedStyles.bodyText, {fontWeight: "Bold"}]}>{caste}</Text>
         </View>
-        <View>
+        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
           <Text>{fName} {lName}</Text>
         </View>
-        <View>
+        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
           <Text>{libNumber}</Text>
         </View>
-        <View>
+        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
+          <Text>{kCashNum}</Text>
+          <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashNoTextLogo.png")} alt = "Knights Cash Logo"/>
+        </View>
+        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
           <Text>UCFID: {UCFID}</Text>
         </View>
       </View>
@@ -114,7 +119,7 @@ export default function HomeScreen({navigation, route}) {
     },
     personalInfoContainer: {
       height: 150,
-      width: 200,
+      width: 230,
       padding: 10,
       borderWidth: 1,
       borderLeftWidth: 5,
@@ -124,5 +129,9 @@ export default function HomeScreen({navigation, route}) {
       elevation: 3,
       backgroundColor: 'white',
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
-    }
+    },
+    myIcon: {
+        height: 16,
+        width: 12
+    },
 });
