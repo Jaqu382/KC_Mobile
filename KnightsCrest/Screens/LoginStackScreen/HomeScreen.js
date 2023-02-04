@@ -72,18 +72,21 @@ export default function HomeScreen({navigation, route}) {
         <View>
           <Text style = {[sharedStyles.bodyText, {fontWeight: "Bold"}]}>{caste}</Text>
         </View>
-        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
-          <Text>{fName} {lName}</Text>
+        <View style = {{padding: 5, flexDirection: "row"}}>
+          <Text style = {sharedStyles.bodyText}>{fName} {lName} </Text>
+          <Image style = {styles.myIcon} source = {require("../../assets/images/studentIcon.png")} alt = "Student icon "/>
         </View>
-        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
-          <Text>{libNumber}</Text>
+        <View style = {{padding: 5, flexDirection: "row"}}>
+          <Text style = {sharedStyles.bodyText}>{libNumber} </Text>
+          <Image style = {styles.myIcon} source = {require("../../assets/images/openBook.png")} alt = "Library book icon"/>
         </View>
-        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
-          <Text>{kCashNum}</Text>
-          <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashNoTextLogo.png")} alt = "Knights Cash Logo"/>
+        <View style = {{padding: 5, flexDirection: "row"}}>
+          <Text style = {sharedStyles.bodyText}>{kCashNum} </Text>
+          <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashButton.png")} alt = "Knights Cash icon"/>
         </View>
-        <View style = {[sharedStyles.horizontalFlex, {padding: 5}]}>
-          <Text>UCFID: {UCFID}</Text>
+        <View style = {{padding: 5, flexDirection: "row"}}>
+          <Text>UCFID: {UCFID} </Text>
+          <Image style = {{width: 25, height: 16}} source = {require("../../assets/images/IDIcon.png")} alt = "Id icon"/>
         </View>
       </View>
       </View>
@@ -132,6 +135,6 @@ export default function HomeScreen({navigation, route}) {
     },
     myIcon: {
         height: 16,
-        width: 12
+        width: 16
     },
 });
