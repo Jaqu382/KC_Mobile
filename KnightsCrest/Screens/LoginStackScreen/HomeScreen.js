@@ -64,7 +64,7 @@ export default function HomeScreen({navigation, route}) {
       </View>
       <View style = {{paddingTop: 10}}>
       <Pressable style = {styles.button} onPress = {handleFlip}>
-              <Text>Turn Card</Text>
+              <Text style = {{fontFamily: "GothamBold", fontWeight:"Bold" }}>View QR code</Text>
       </Pressable>
       </View>
       <View style ={{paddingTop: 10}}>
@@ -82,7 +82,7 @@ export default function HomeScreen({navigation, route}) {
         </View>
         <View style = {{padding: 5, flexDirection: "row"}}>
           <Text style = {sharedStyles.bodyText}>{kCashNum} </Text>
-          <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashButton.png")} alt = "Knights Cash icon"/>
+          <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashIcon.png")} alt = "Knights Cash icon"/>
         </View>
         <View style = {{padding: 5, flexDirection: "row"}}>
           <Text>UCFID: {UCFID} </Text>

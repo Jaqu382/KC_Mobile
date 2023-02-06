@@ -1,6 +1,9 @@
 import { View, Text, SafeAreaView,StyleSheet } from "react-native"
+import sharedStyles from "../../SharedStyle";
 
 export default function PersonalInfoScreen(){
+
+    // Variables in place for testing 
     const fName = "Ima";
     const lName = "Knight";
     const prefName = "Ima";
@@ -11,33 +14,48 @@ export default function PersonalInfoScreen(){
 
     return(
         <SafeAreaView style = {styles.container}>
-        <View>
             <View>
-                <Text>Personal Information</Text>
-            </View>
-            <View>
-                <Text>Name</Text>
-                <Text>{fName} {lName}</Text>
-            </View>
-            <View>
-                <Text>Preferred Name</Text>
-                <Text>{prefName}</Text>
-            </View>
-            <View>
-                <Text>Pronouns</Text>
-                <Text>{pronouns}</Text>
-            </View>
-            <View>
-                <Text>UCFID</Text>
-                <Text>{UCFID}</Text>
-            </View>
-            <View>
-                <Text>Knights Cash ID</Text>
-                <Text>{kCashID}</Text>
-            </View>
-            <View>
-                <Text>Library ID</Text>
-                <Text>{libID}</Text>
+                <View>
+                    <Text style = {[sharedStyles.headingText, {fontWeight: 'bold'}]}>Personal Information</Text>
+                </View>
+                <View style = {sharedStyles.divider}></View>
+                <View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>Name</Text>
+                    <View style = {styles.infoItem}>
+                        <Text style = {sharedStyles.bodyText}>{fName} {lName}</Text>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>Preferred Name</Text>
+                    <View style = {styles.infoItem}>
+                        <Text style = {sharedStyles.bodyText}>{prefName}</Text>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>Pronouns</Text>
+                    <View style = {styles.infoItem}>
+                        <Text style = {sharedStyles.bodyText}>{pronouns}</Text>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>UCFID</Text>
+                    <View style = {styles.infoItem}>
+                        <Text style = {sharedStyles.bodyText}>{UCFID}</Text>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>Knights Cash ID</Text>
+                    <View style = {styles.infoItem}>
+                        <Text style = {sharedStyles.bodyText}>{kCashID}</Text>
+                    </View>
+                </View>
+                <View>
+                    <Text style = {sharedStyles.subHeadingText}>Library ID</Text>
+                    <View style = {styles.infoItem}>
+                        <Text style = {sharedStyles.bodyText}>{libID}</Text>
+                    </View>
+                </View>
             </View>
 
         </View>
@@ -51,4 +69,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
-    },})
+    },
+    infoItem: {
+        padding: 10,
+        borderRadius: 5,
+        backgroundColor: '#fff',
+        fontSize: 15,
+        color: "#D4D4D4",
+        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+    }})

@@ -11,7 +11,8 @@ const sharedStyles = StyleSheet.create({
         fontSize: 22
     },
     subHeadingText:{
-        fontSize: 20
+        fontSize: 18,
+        fontFamily: "GothamBook"
     },
     bodyText:{
         fontSize: 16,

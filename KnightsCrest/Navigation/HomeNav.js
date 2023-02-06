@@ -14,7 +14,7 @@ export default function HomeNav(){
         backgroundColor:"#ffc904",
         padding: 20
       }
-      } }>
+      }}>
     <Tab.Screen name ="KnightsCash" component={KnightsCashStack}/>
      <Tab.Screen name="MainScreen" component={HomeScreen} />
      <Tab.Screen name="Library" component={LibraryStack}/>
