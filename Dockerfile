@@ -1,8 +1,8 @@
 # Use an official Node.js runtime as the base image
 FROM node:14
 
-# Set the working directory in the container to /app
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /KnightsCrest
 
 # Copy the package.json and package-lock.json files to the container
 COPY package*.json ./
