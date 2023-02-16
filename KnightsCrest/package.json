@@ -6,7 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
@@ -18,6 +20,7 @@
     "@rneui/themed": "*",
     "date-fns": "^2.29.3",
     "expo": "~47.0.12",
+    "expo-font": "~11.0.1",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
     "react-barcode": "^1.4.6",
@@ -33,11 +36,11 @@
     "react-native-web": "~0.18.7",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
-    "rn-fetch-blob": "^0.12.0",
-    "expo-font": "~11.0.1"
+    "rn-fetch-blob": "^0.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3"
+    "@babel/core": "^7.19.3",
+    "gh-pages": "^5.0.0"
   },
   "private": true
 }
