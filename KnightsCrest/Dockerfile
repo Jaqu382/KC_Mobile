@@ -1,23 +1,23 @@
-# Use the official Node.js v14 image as a parent image
-FROM node:14
+FROM node:16.10.0-alpine3.14
 
-# Install the Expo CLI globally
-RUN npm install -g expo-cli
-
-# Set the working directory to /app
+# Set the working directory
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files into the container
+# Install Expo globally
+RUN npm install -g expo@latest
+
+# Copy package.json and package-lock.json files to the container
 COPY package*.json ./
 
-# Install the project dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the app source code into the container
+# Copy the rest of the app files to the container
 COPY . .
 
-# Expose the port used by Expo (typically 19000)
+# Expose the port used by the app (optional)
 EXPOSE 19000
+EXPOSE 19006
 
-# Start the development server when the container starts
-CMD [ "npm", "start" ]
+# Start the development server
+CMD ["npm", "start"]
