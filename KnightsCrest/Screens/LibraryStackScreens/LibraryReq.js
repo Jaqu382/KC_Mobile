@@ -2,7 +2,7 @@ import { Card } from "@rneui/themed";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import LibraryReqItem from "../../components/LibraryReqItem";
 
-export default function LibraryReq(){
+export default function LibraryReq({navigation, route}){
     //For testing
     let hasRequest = true;
     let requestedItem = "Neuromancer / Gibson, William"

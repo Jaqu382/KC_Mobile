@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, SafeAreaView  } from "react-native"
 import BalanceCard from "../../components/BalanceCard";
-export default function LibraryFees(props){
+export default function LibraryFees({navigation, route}){
   //const{hasBalance, balance} = props;
   let hasBalance = true;
   let balance = 7.00;

@@ -1,7 +1,7 @@
 import { SafeAreaView, View, StyleSheet, Text } from "react-native";
 import LibraryItem from "../../components/LibraryItem";
 
-export default function LibraryLoans(){
+export default function LibraryLoans({navigation, route}){
     // For testing
     let item = "DTC Alienware Laptop";
     let itemID = 1;
