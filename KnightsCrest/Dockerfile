@@ -1,17 +1,21 @@
-# Use Node.js as the base image
-FROM node:14
+# Base image for the container
+FROM node:16-alpine
 
-# Set the working directory in the container
+# Set the working directory for the container
 WORKDIR /app
 
-# Copy the package.json file to the container
-COPY package.json ./
+# Copy the package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# Install the dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the code to the container
+# Install required packages
+RUN npm install --save react@18.1.0 react-dom@18.1.0 react-native-reanimated@~2.12.0 react-native-safe-area-context@4.4.1
+
+# Copy the application code to the container
 COPY . .
 
-# Set the command to run when the container starts
+
+# Start the application
 CMD [ "npm", "start" ]
