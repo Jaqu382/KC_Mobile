@@ -1,5 +1,4 @@
-import { View, Text , StyleSheet, Pressable} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text , StyleSheet, Pressable, SafeAreaView } from "react-native";
 
 export default function LibraryMain({navigation, route}){
     return(

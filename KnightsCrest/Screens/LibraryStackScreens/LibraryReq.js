@@ -1,6 +1,5 @@
 import { Card } from "@rneui/themed";
-import { View, Text, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import LibraryReqItem from "../../components/LibraryReqItem";
 
 export default function LibraryReq(){

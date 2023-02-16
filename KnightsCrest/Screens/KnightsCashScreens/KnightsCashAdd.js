@@ -1,13 +1,11 @@
-import { View, Text, StyleSheet, Pressable} from "react-native"
-import { TextInput } from "react-native-gesture-handler"
+import { View, Text, StyleSheet, Pressable, SafeAreaView, TextInput} from "react-native";
 import { Card } from '@rneui/themed';
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function KnightsCashAdd({navigation, route}){
     return(
         <SafeAreaView style = {styles.container}>
             <View>
-                <Text>ADD KNIGHTS CASH FUND</Text>
+                <Text>ADD KNIGHTS CASH FUNDS</Text>
             </View>
             <Card containerStyle = {styles.formCard}>
                 <View>
@@ -28,14 +26,14 @@ export default function KnightsCashAdd({navigation, route}){
                     <Text>Card Number</Text>
                     <TextInput style = {styles.fieldInput}></TextInput>
                 </View>
-                <View style = {{flexDirection: "Row", justifyContent:"space-between" }}>
-                    <View>
+                <View style = {{flexDirection: "Row"}}>
+                    <View style = {{paddingRight: 5}}>
                         <Text>Security Code</Text>
-                        <TextInput style = {styles.fieldInput}></TextInput>
+                        <TextInput style = {[styles.fieldInputSmall]}></TextInput>
                     </View>
                     <View>
                         <Text>Exp. Date</Text>
-                        <TextInput style = {styles.fieldInput}></TextInput>
+                        <TextInput style = {styles.fieldInputMedium}></TextInput>
                     </View>
                 </View>
             </Card>
@@ -56,6 +54,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     formCard: {
+        width: 240,
         backgroundColor: "#FDF1BC",
         boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
       },
@@ -65,9 +64,28 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontSize: 15,
         color: "#000",
+        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+      },
+      fieldInputSmall: {
+        padding: 5,
+        width: 50,
+        borderRadius: 5,
+        backgroundColor: '#fff',
+        fontSize: 15,
+        color: "#000",
+        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+      },
+      fieldInputMedium: {
+        padding: 5,
+        width: 100 ,
+        borderRadius: 5,
+        backgroundColor: '#fff',
+        fontSize: 15,
+        color: "#000",
+        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
       },
       button: {
-        width: 250,
+        width: 240,
         height:35,
         padding: 10,
         alignItems: 'center',

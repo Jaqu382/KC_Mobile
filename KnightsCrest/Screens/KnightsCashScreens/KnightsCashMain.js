@@ -1,10 +1,9 @@
-import { View, Text , StyleSheet, Pressable} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text , StyleSheet, Pressable, SafeAreaView } from "react-native";
 
 export default function KnightsCashMain({navigation, route}){
     return(
     <SafeAreaView style = {styles.container}>
-        <View >
+        <View>
             <View style = {{paddingTop: 10}}>
             <Pressable style = {styles.button} onPress = {()=> navigation.navigate("Balance")}>
                 <Text>Check Balance</Text>
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     button: {
-        width: 240,
+        width: 250,
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',

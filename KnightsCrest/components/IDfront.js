@@ -34,7 +34,7 @@ export default function IDfront(props){
                     <Text style = {sharedStyles.smallText}>{kCashNum}</Text>
                 </View>
                 <View >
-                    <Text style = {{fontFamily: "GothamBold", color: "#378805", fontWeight: "bold"}}>{caste}</Text>
+                    <Text style = {{color: "#378805", fontWeight: "bold"}}>{caste}</Text>
                 </View>
                 </View>
                 </View>

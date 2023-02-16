@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View, TextInput, Linking, Image} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Linking, Image, SafeAreaView} from 'react-native';
 import { Card } from '@rneui/themed';
 import { useState } from 'react';
 import { Button } from '@rneui/base';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import * as Font from 'expo-font';
+import sharedStyles from '../../SharedStyle';
 
 export default function Login({navigation}) {
 
@@ -13,7 +12,7 @@ export default function Login({navigation}) {
     const passwordIsFocus = PasswordFocus ? styles.loginInputFocus : styles.loginInput;
     
     return (
-      <SafeAreaProvider style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View >
         <Image style = {styles.tabHorizontal} source={require("../../assets/images/TabLockup.png")} alt={'University of Central Florida'}/>
           <Card containerStyle = {styles.loginCard}>
@@ -25,7 +24,7 @@ export default function Login({navigation}) {
                 placeholder='Username: NID or DTC-Atlas ID'
                 ></TextInput>
     
-              <Text>Password</Text>
+              <Text style ={styles.fieldTitle}>Password</Text>
               <TextInput
                   placeholder='Password'
                   secureTextEntry={true}
@@ -47,7 +46,7 @@ export default function Login({navigation}) {
             <Text>By signing on, you agree to the terms of the </Text>
             <Text style = {styles.hyperlink} onPress={() => Linking.openURL('https://policies.ucf.edu/')}>UCF Policies & Procedures.</Text>
         </View>
-        </SafeAreaProvider>
+        </SafeAreaView>
         )  
 }
 
@@ -58,9 +57,6 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    fieldTitle: {
-      fontFamily: "Gotham-Bold"
-    },
     loginInput: {
       padding: 10,
       borderRadius: 5,
@@ -68,6 +64,9 @@ const styles = StyleSheet.create({
       fontSize: 15,
       color: "#D4D4D4",
       boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+    },
+    fieldTitle: {
+      fontWeight: "bold"
     },
     loginInputFocus: {
       padding: 10,

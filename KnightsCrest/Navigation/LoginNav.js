@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Login from '../Screens/LoginStackScreen/Login';
-import DrawerNav from "./DrawerNav"
 import HomeNav from './HomeNav';
 
 

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 const sharedStyles = StyleSheet.create({   
     container: {
         flex: 1,
@@ -12,15 +13,12 @@ const sharedStyles = StyleSheet.create({
     },
     subHeadingText:{
         fontSize: 18,
-        fontFamily: "GothamBook"
     },
     bodyText:{
         fontSize: 16,
-        fontFamily: "GothamBook"
     },
     smallText:{
         fontSize: 14,
-        fontFamily: "GothamBook"
     },
     horizontalFlex: {
         flexDirection: "row",

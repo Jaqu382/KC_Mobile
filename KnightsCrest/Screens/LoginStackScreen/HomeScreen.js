@@ -1,5 +1,4 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import {StyleSheet, View, Animated, Pressable, Text, Image} from 'react-native';
+import {StyleSheet, View, Animated, Pressable, Text, Image, SafeAreaView} from 'react-native';
 import { useRef, useState } from 'react'; 
 import IDfront from '../../components/IDfront';
 import IDback from '../../components/IDback';  
@@ -64,7 +63,7 @@ export default function HomeScreen({navigation, route}) {
       </View>
       <View style = {{paddingTop: 10}}>
       <Pressable style = {styles.button} onPress = {handleFlip}>
-              <Text style = {{fontFamily: "GothamBold", fontWeight:"Bold" }}>View QR code</Text>
+              <Text style = {{fontWeight:"Bold" }}>View QR code</Text>
       </Pressable>
       </View>
       <View style ={{paddingTop: 10}}>
