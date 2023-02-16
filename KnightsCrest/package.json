@@ -10,6 +10,7 @@
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d build"
   },
+  "homepage": "https://Jaqu382.github.io/KC_Mobile",
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
     "@react-native-masked-view/masked-view": "0.2.8",
