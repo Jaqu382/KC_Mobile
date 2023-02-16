@@ -14,12 +14,13 @@ export default function LibraryReq(){
             <SafeAreaView style = {styles.container}>
                 <View>
                     <Text>Request</Text>
+                </View>
                     {/*Implement a flat list when data is present*/}
                     <LibraryReqItem 
                     requestedItem = {requestedItem}
                     requestDate = {requestDate}
                     pickupLocation = {pickupLocation}/>
-                </View>
+                
             </SafeAreaView>
         )}
     else
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
+        justifyContent: 'center',
       },
     reqItem: {
         width: 300,
