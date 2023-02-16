@@ -3,6 +3,7 @@ import { Card } from '@rneui/themed';
 import { useState } from 'react';
 import { Button } from '@rneui/base';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import * as Font from 'expo-font';
 
 export default function Login({navigation}) {
 
@@ -10,7 +11,7 @@ export default function Login({navigation}) {
     const accountIsFocus = accountFocus ? styles.loginInputFocus : styles.loginInput
     const [PasswordFocus, setPasswordFocus] = useState(false);
     const passwordIsFocus = PasswordFocus ? styles.loginInputFocus : styles.loginInput;
-
+    
     return (
       <SafeAreaProvider style={styles.container}>
         <View >

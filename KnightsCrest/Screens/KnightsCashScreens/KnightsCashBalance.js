@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, Switch, Pressable } from "react-native";
+import { View, Text, StyleSheet, Switch} from "react-native";
 import { Card } from "@rneui/themed";
 import Transaction from "../../components/Transaction";
 import { SafeAreaView } from "react-native-safe-area-context";

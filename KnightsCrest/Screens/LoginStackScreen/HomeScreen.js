@@ -121,7 +121,7 @@ export default function HomeScreen({navigation, route}) {
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
     },
     personalInfoContainer: {
-      height: 150,
+      height: 160,
       width: 230,
       padding: 10,
       borderWidth: 1,

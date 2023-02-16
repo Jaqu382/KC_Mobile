@@ -7,7 +7,6 @@ export default function LibraryItem(props){
     const {itemID, item, dueDate, pickupLocation} = props;
 
     // Format date
-    console.log(dueDate)
     let myDate = new Date(dueDate);
     let formatDate = format(myDate, 'MM/dd/yyyy')
 
@@ -24,7 +23,9 @@ export default function LibraryItem(props){
                     <Text>
                         Due: {formatDate}
                     </Text>
+                    <Text>
                         Pickup: {pickupLocation}
+                    </Text>
                 </View>
             </Card>
         </View>

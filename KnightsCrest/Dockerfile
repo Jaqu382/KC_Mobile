@@ -21,5 +21,3 @@ EXPOSE 19000
 
 # Start the development server when the container starts
 CMD [ "npm", "start" ]
-# Start the application
-CMD [ "npm", "start" ]

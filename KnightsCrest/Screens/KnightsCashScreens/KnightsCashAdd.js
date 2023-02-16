@@ -1,11 +1,9 @@
 import { View, Text, StyleSheet, Pressable} from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import { Card } from '@rneui/themed';
-import FormButton from "../../components/FormButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function KnightsCashAdd({navigation}){
-    
+export default function KnightsCashAdd({navigation, route}){
     return(
         <SafeAreaView style = {styles.container}>
             <View>
@@ -67,7 +65,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         fontSize: 15,
         color: "#000",
-        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
       },
       button: {
         width: 250,

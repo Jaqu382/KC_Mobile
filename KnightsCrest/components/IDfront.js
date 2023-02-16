@@ -45,10 +45,11 @@ export default function IDfront(props){
 
 const styles = StyleSheet.create({
     IDcard:{
-        flex: 1,
         height: 250,
         width: 230,
-        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
+        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" ,
+        justifyContent: "center",
+        alignContent: "center",
     },
     myIcon: {
         height: 16,
