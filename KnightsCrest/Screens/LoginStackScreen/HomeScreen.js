@@ -1,10 +1,18 @@
 import {StyleSheet, View, Animated, Pressable, Text, Image, SafeAreaView} from 'react-native';
 import { useRef, useState } from 'react'; 
+import { useEffect } from 'react';
 import IDfront from '../../components/IDfront';
 import IDback from '../../components/IDback';  
 import sharedStyles from '../../SharedStyle';
 
+
+import { getDatabase, ref, child, get } from 'firebase/database';
+
 export default function HomeScreen({navigation, route}) {
+
+  const [userData, setUserData] = useState(null);
+  const { nid } = route.params;
+
   // Variables simulated as hard code for testing
   const fName= "Ima";
   const lName = "Knight";
@@ -13,8 +21,7 @@ export default function HomeScreen({navigation, route}) {
   const UCFID = "1234567";
   const caste = "STUDENT";
   const expDate = "2025-03-31T00:00:00" ;
-  const imagePath = "../../assets/images/imaKnight.jpg"
-  // Const {fName, LName, kCashNumber, libNumber, UCFID, caste, expDate} = route.params
+ 
 
   // Flip animation
   const animate = useRef(new Animated.Value(0));

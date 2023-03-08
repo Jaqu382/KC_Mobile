@@ -8,9 +8,9 @@ export default function AppNavContainer() {
 
   return(
     <SafeAreaProvider>
-    <NavigationContainer>
-      <LoginNav/>
-    </NavigationContainer>
+      <NavigationContainer>
+        <LoginNav/>
+      </NavigationContainer>
     </SafeAreaProvider>
   )
 }

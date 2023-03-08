@@ -1,20 +1,29 @@
-import 'react-native-gesture-handler';
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 import Login from '../Screens/LoginStackScreen/Login';
-import HomeNav from './HomeNav';
+import HomeScreen from '../Screens/LoginStackScreen/HomeScreen';
 
 
-const LoginStack = createStackNavigator();
-export default function LoginNav() {
-    return(
-          <LoginStack.Navigator initialRouteName = "Login" screenOptions={{headerShown: false} }>
-            <LoginStack.Screen name="Login" component={Login} />
-            <LoginStack.Screen name='Main' component={HomeNav}/>
-          </LoginStack.Navigator>
-          );
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
+export default function loginNav() {
+return (
+  <Stack.Navigator>
+    <Stack.Screen name="Login" component={Login} />
+    <Stack.Screen name="Home" component={HomeScreenNav}/>
+  </Stack.Navigator>
+);}
 
+function HomeScreenNav({ navigation, route }) {
+  const {nid} = route.params;
+
+  return (
+    <Tab.Navigator initialRouteName="Home" useLegacyImplementation={false}>
+      <Tab.Screen name="HomeScreen" component={HomeScreen} initialParams={{ nid }} />
+    </Tab.Navigator>
+  );
 }
