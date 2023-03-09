@@ -1,6 +1,5 @@
 import {StyleSheet, View, Animated, Pressable, Text, Image, SafeAreaView} from 'react-native';
 import { useRef, useState } from 'react'; 
-import { useEffect } from 'react';
 
 // Componants
 import IDfront from '../../components/IDfront';
@@ -15,18 +14,8 @@ import { selectUser } from '../../slices/userSlice';
 
 export default function HomeScreen({navigation, route}) {
 
+  // Grab user from redux
   const user = useSelector(selectUser);
-  console.log(user);
-
-  // Variables simulated as hard code for testing
-  const fName= "Ima";
-  const lName = "Knight";
-  const kCashNum = "6009 1921 5309 4359";
-  const libNumber = "2 21031 52662067" ;
-  const UCFID = "1234567";
-  const caste = "STUDENT";
-  const expDate = "2025-03-31T00:00:00" ;
- 
 
   // Flip animation
   const animate = useRef(new Animated.Value(0));
