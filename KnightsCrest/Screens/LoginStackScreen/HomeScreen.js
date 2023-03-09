@@ -1,16 +1,15 @@
-import {StyleSheet, View, Animated, Pressable, Text, Image, SafeAreaView} from 'react-native';
+import {StyleSheet, View, Animated, SafeAreaView} from 'react-native';
 import { useRef, useState } from 'react'; 
 
 // Componants
 import IDfront from '../../components/IDfront';
 import IDback from '../../components/IDback';
 
-// Styles
-import sharedStyles from '../../SharedStyle';
-
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
+import PersonalInfoCard from '../../components/PersonalInfoCard';
+import YellowButton from '../../components/YellowButton';
 
 export default function HomeScreen({navigation, route}) {
 
@@ -54,42 +53,20 @@ export default function HomeScreen({navigation, route}) {
             <Animated.View style = {[{transform: [{rotateY: interpolateBack}]}, styles.back, styles.hidden]}>
               <IDback
                 isFlipped= {isFlipped}
-                fName= {fName}
-                lName = {lName}
-                kCashNum = {kCashNum}
-                libNumber = {libNumber}
-                UCFID = {UCFID}
-                caste = {caste}
-                expDate = {expDate}/>
+                fName= {user.firstName}
+                lName = {user.lastName}
+                kCashNum = {user.knightsCashAccount}
+                libNumber = {user.libraryAccount}
+                UCFID = {user.ucfId}  
+                caste = {user.caste}
+                expDate = {user.expirationDate}/>
             </Animated.View>
       </View>
       <View style = {{paddingTop: 10}}>
-      <Pressable style = {styles.button} onPress = {handleFlip}>
-              <Text style = {{fontWeight:"Bold" }}>View QR code</Text>
-      </Pressable>
+        <YellowButton title= "View QR Code" onPress = {handleFlip}></YellowButton>
       </View>
       <View style ={{paddingTop: 10}}>
-      <View style = {styles.personalInfoContainer}>
-        <View>
-          <Text style = {[sharedStyles.bodyText, {fontWeight: "Bold"}]}>{user.caste}</Text>
-        </View>
-        <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text style = {sharedStyles.bodyText}>{user.firstName} {user.lastName} </Text>
-          <Image style = {styles.myIcon} source = {require("../../assets/images/studentIcon.png")} alt = "Student icon "/>
-        </View>
-        <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text style = {sharedStyles.bodyText}>{user.libraryAccount} </Text>
-          <Image style = {styles.myIcon} source = {require("../../assets/images/openBook.png")} alt = "Library book icon"/>
-        </View>
-        <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text style = {sharedStyles.bodyText}>{user.knightsCashAccount} </Text>
-          <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashIcon.png")} alt = "Knights Cash icon"/>
-        </View>
-        <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text>UCFID: {user.ucfId} </Text>
-          <Image style = {{width: 25, height: 16}} source = {require("../../assets/images/IDIcon.png")} alt = "Id icon"/>
-        </View>
-      </View>
+        <PersonalInfoCard user = {user}></PersonalInfoCard>
       </View>
       </SafeAreaView>
     );
@@ -108,34 +85,5 @@ export default function HomeScreen({navigation, route}) {
     back: {
       position: 'absolute',
       top: 0
-
-    },
-    button: {
-      width: 125,
-      height:35,
-      padding: 10,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 10,
-      elevation: 3,
-      backgroundColor: "#ffc904",
-      boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
-    },
-    personalInfoContainer: {
-      height: 160,
-      width: 230,
-      padding: 10,
-      borderWidth: 1,
-      borderLeftWidth: 5,
-      borderStartColor: "#ffc904",
-      borderRadius: 2,
-      borderColor: "#ffc904",
-      elevation: 3,
-      backgroundColor: 'white',
-      boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
-    },
-    myIcon: {
-        height: 16,
-        width: 16
     },
 });
