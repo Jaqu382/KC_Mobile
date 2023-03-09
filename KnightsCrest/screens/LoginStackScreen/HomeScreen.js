@@ -4,12 +4,14 @@ import { useRef, useState } from 'react';
 // Componants
 import IDfront from '../../components/IDfront';
 import IDback from '../../components/IDback';
+import PersonalInfoCard from '../../components/PersonalInfoCard';
+import YellowButton from '../../components/YellowButton';
+
 
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
-import PersonalInfoCard from '../../components/PersonalInfoCard';
-import YellowButton from '../../components/YellowButton';
+
 
 export default function HomeScreen({navigation, route}) {
 
@@ -53,13 +55,7 @@ export default function HomeScreen({navigation, route}) {
             <Animated.View style = {[{transform: [{rotateY: interpolateBack}]}, styles.back, styles.hidden]}>
               <IDback
                 isFlipped= {isFlipped}
-                fName= {user.firstName}
-                lName = {user.lastName}
-                kCashNum = {user.knightsCashAccount}
-                libNumber = {user.libraryAccount}
-                UCFID = {user.ucfId}  
-                caste = {user.caste}
-                expDate = {user.expirationDate}/>
+                user={user}/>
             </Animated.View>
       </View>
       <View style = {{paddingTop: 10}}>

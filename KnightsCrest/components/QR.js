@@ -3,11 +3,12 @@ import QRCode from 'react-native-qrcode-svg';
 
 export default function QR (props){
 
-    const {UCFID} = props
+    const {user} = props
+    const userString = JSON.stringify(user);
     return(     
             <QRCode
-            size={185}
-            value = {UCFID}
+            size={150}
+            value = {user}
             color="black"
             backgroundColor="white"
             />
