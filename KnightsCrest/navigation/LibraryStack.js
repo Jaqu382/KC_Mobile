@@ -1,10 +1,10 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import LibraryMain from '../Screens/LibraryStackScreens/LibraryMain';
-import LibraryFees from '../Screens/LibraryStackScreens/LibraryFees';
-import LibraryLoans from '../Screens/LibraryStackScreens/LibraryLoans';
-import LibraryReq from '../Screens/LibraryStackScreens/LibraryReq';
+import LibraryMain from '../screens/LibraryStackScreens/LibraryMain';
+import LibraryFees from '../screens/LibraryStackScreens/LibraryFees';
+import LibraryLoans from '../screens/LibraryStackScreens/LibraryLoans';
+import LibraryReq from '../screens/LibraryStackScreens/LibraryReq';
 
 const Stack = createStackNavigator();
 export default function LibraryStack() {
