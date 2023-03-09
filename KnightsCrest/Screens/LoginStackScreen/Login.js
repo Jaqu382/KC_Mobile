@@ -6,13 +6,18 @@ import { Linking } from "react-native";
 import firebaseConfig from "../../firebase";
 import { getDatabase, ref, child, get } from "firebase/database";
 
+import { useDispatch } from 'react-redux';
+import { updateUser } from "../../slices/userSlice";
+
+
+
 // Warning message componant
 function WarningMessage({ message }) {
   return message ? <Text style={styles.warningText}>{message}</Text> : null;
 }
 
 export default function Login({navigation}) {
-
+  const dispatch = useDispatch();
   // Control styling
   const [accountIsFocus, setAccountFocus] = useState(styles.fieldInput);
   const [passwordIsFocus, setPasswordFocus] = useState(styles.fieldInput);
@@ -38,8 +43,25 @@ export default function Login({navigation}) {
       // If the user exists, compare the passwords
       const hashedPassword = userSnapshot.child("password").val();
       if (hashedPassword === userPassword) {
-        // If the passwords match, navigate to the home screen
-        navigation.navigate('Home' , {nid: userNid});
+        // If the passwords match, navigate to the home screen and update the user's information in Redux
+        dispatch(
+          updateUser({            
+            firstName: userSnapshot.child("first_name").val(),
+            lastName: userSnapshot.child("last_name").val(),
+            caste: userSnapshot.child("caste").val(),
+            dateOfBirth: userSnapshot.child("date_of_birth").val(),
+            profilePicture: userSnapshot.child("profile_picture").val(),
+            nid: userNid,
+            ucfId: userSnapshot.child("ucf_id").val(),
+            campus: userSnapshot.child("campus").val(),
+            expirationDate: userSnapshot.child("expiration_date").val(),
+            knightsCashAccount: userSnapshot.child("knights_cash_account").val(),
+            kcBalance: userSnapshot.child("kc_balance").val(),
+            libraryAccount: userSnapshot.child("library_account").val(),
+            libraryLoans: userSnapshot.child("library_loans").val(),
+          })
+        );
+        navigation.navigate('Home');
       } else {
         // If the passwords do not match, show a warning message
         setWarning("Invalid password");
@@ -49,7 +71,6 @@ export default function Login({navigation}) {
       setWarning("Invalid account");
     }
   }
-  
   // Same hashing method used in admin javascript
   async function hashPassword(password) {
     const encoder = new TextEncoder();
@@ -58,10 +79,6 @@ export default function Login({navigation}) {
     return Array.from(new Uint8Array(hashedPassword))
       .map((b) => b.toString(16).padStart(2, "0"))
       .join("");
-  }
-
-  function navigateToHomeScreen (userNid){
-    navigation.navigate('Home' , {nid: userNid});
   }
 
   return (

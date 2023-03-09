@@ -19,11 +19,9 @@ return (
 );}
 
 function HomeScreenNav({ navigation, route }) {
-  const {nid} = route.params;
-
   return (
     <Tab.Navigator initialRouteName="Home" useLegacyImplementation={false}>
-      <Tab.Screen name="HomeScreen" component={HomeScreen} initialParams={{ nid }} />
+      <Tab.Screen name="HomeScreen" component={HomeScreen}/>
     </Tab.Navigator>
   );
 }

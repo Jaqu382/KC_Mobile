@@ -1,17 +1,20 @@
 import {StyleSheet, View, Animated, Pressable, Text, Image, SafeAreaView} from 'react-native';
 import { useRef, useState } from 'react'; 
 import { useEffect } from 'react';
+
+// Componants
 import IDfront from '../../components/IDfront';
-import IDback from '../../components/IDback';  
+import IDback from '../../components/IDback';
+
+// Styles
 import sharedStyles from '../../SharedStyle';
 
-
-import { getDatabase, ref, child, get } from 'firebase/database';
+// Redux
+import { useSelector } from "react-redux";
 
 export default function HomeScreen({navigation, route}) {
 
-  const [userData, setUserData] = useState(null);
-  const { nid } = route.params;
+  const user = useSelector((state) => state.user);
 
   // Variables simulated as hard code for testing
   const fName= "Ima";
