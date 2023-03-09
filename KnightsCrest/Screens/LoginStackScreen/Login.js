@@ -120,10 +120,11 @@ export default function Login({navigation}) {
           </View>
         </Card>
       </View>
-      <View style={{ paddingTop: 10 }}>
+      <View style={{ paddingTop: 10}}>
         <Text>By signing on, you agree to the terms of the </Text>
         <Text style={styles.hyperlink} onPress={() => Linking.openURL('https://policies.ucf.edu/')}>UCF Policies & Procedures.</Text>
       </View>
+      <View ><Text style = {{fontWeight: "bold"}}>Try Login in with username and password: hk123456 or ik123456 </Text></View>
     </SafeAreaView>
   )
 }

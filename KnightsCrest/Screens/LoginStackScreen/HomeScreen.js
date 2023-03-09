@@ -11,10 +11,12 @@ import sharedStyles from '../../SharedStyle';
 
 // Redux
 import { useSelector } from "react-redux";
+import { selectUser } from '../../slices/userSlice';
 
 export default function HomeScreen({navigation, route}) {
 
-  const user = useSelector((state) => state.user);
+  const user = useSelector(selectUser);
+  console.log(user);
 
   // Variables simulated as hard code for testing
   const fName= "Ima";
@@ -51,13 +53,14 @@ export default function HomeScreen({navigation, route}) {
             <Animated.View style = {[{transform: [{rotateY: interpolateFront}]}, styles.hidden]}>
               <IDfront
               isFlipped= {isFlipped}
-              fName= {fName}
-              lName = {lName}
-              kCashNum = {kCashNum}
-              libNumber = {libNumber}
-              UCFID = {UCFID}
-              caste = {caste}
-              expDate = {expDate}/>
+              profile={user.profilePicture}
+              fName= {user.firstName}
+              lName = {user.lastName}
+              kCashNum = {user.knightsCashAccount}
+              libNumber = {user.libraryAccount}
+              UCFID = {user.ucfId}
+              caste = {user.caste}
+              expDate = {user.expirationDate}/>
             </Animated.View>
             <Animated.View style = {[{transform: [{rotateY: interpolateBack}]}, styles.back, styles.hidden]}>
               <IDback
@@ -79,22 +82,22 @@ export default function HomeScreen({navigation, route}) {
       <View style ={{paddingTop: 10}}>
       <View style = {styles.personalInfoContainer}>
         <View>
-          <Text style = {[sharedStyles.bodyText, {fontWeight: "Bold"}]}>{caste}</Text>
+          <Text style = {[sharedStyles.bodyText, {fontWeight: "Bold"}]}>{user.caste}</Text>
         </View>
         <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text style = {sharedStyles.bodyText}>{fName} {lName} </Text>
+          <Text style = {sharedStyles.bodyText}>{user.firstName} {user.lastName} </Text>
           <Image style = {styles.myIcon} source = {require("../../assets/images/studentIcon.png")} alt = "Student icon "/>
         </View>
         <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text style = {sharedStyles.bodyText}>{libNumber} </Text>
+          <Text style = {sharedStyles.bodyText}>{user.libraryAccount} </Text>
           <Image style = {styles.myIcon} source = {require("../../assets/images/openBook.png")} alt = "Library book icon"/>
         </View>
         <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text style = {sharedStyles.bodyText}>{kCashNum} </Text>
+          <Text style = {sharedStyles.bodyText}>{user.knightsCashAccount} </Text>
           <Image style = {styles.myIcon} source = {require("../../assets/images/KnightsCashIcon.png")} alt = "Knights Cash icon"/>
         </View>
         <View style = {{padding: 5, flexDirection: "row"}}>
-          <Text>UCFID: {UCFID} </Text>
+          <Text>UCFID: {user.ucfId} </Text>
           <Image style = {{width: 25, height: 16}} source = {require("../../assets/images/IDIcon.png")} alt = "Id icon"/>
         </View>
       </View>
