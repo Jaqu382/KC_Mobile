@@ -17,7 +17,7 @@ export default function HomeScreen({navigation, route}) {
 
   // Grab user from redux
   const user = useSelector(selectUser);
-
+  console.log(user);
   // Flip animation
   const animate = useRef(new Animated.Value(0));
   const [isFlipped, setIsFlipped] = useState(false);

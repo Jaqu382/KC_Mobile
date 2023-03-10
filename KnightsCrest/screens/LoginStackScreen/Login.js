@@ -44,24 +44,23 @@ export default function Login({navigation}) {
       const hashedPassword = userSnapshot.child("password").val();  
       if (hashedPassword === userPassword) {
         // If the passwords match, navigate to the home screen and update the user's information in Redux
-        console.log("Passwords match");
-        dispatch(
-          updateUser({            
-            firstName: userSnapshot.child("first_name").val(),
-            lastName: userSnapshot.child("last_name").val(),
-            caste: userSnapshot.child("caste").val(),
-            dateOfBirth: userSnapshot.child("date_of_birth").val(),
-            profilePicture: userSnapshot.child("profile_picture").val(),
-            nid: userNid,
-            ucfId: userSnapshot.child("ucf_id").val(),
-            campus: userSnapshot.child("campus").val(),
-            expirationDate: userSnapshot.child("expiration_date").val(),
-            knightsCashAccount: userSnapshot.child("knights_cash_account").val(),
-            kcBalance: userSnapshot.child("kc_balance").val(),
-            libraryAccount: userSnapshot.child("library_account").val(),
-            libraryLoans: userSnapshot.child("library_loans").val(),
-          })
-        );
+        dispatch(updateUser({
+          nid: userNid,
+          firstName: userSnapshot.child("first_name").val(),
+          lastName: userSnapshot.child("last_name").val(),
+          campus: userSnapshot.child("campus").val(),
+          ucfId: userSnapshot.child("ucf_id").val(),
+          profilePicture: userSnapshot.child("profile_picture").val(),
+          balance: userSnapshot.child("balance").val(),
+          kcBalance: { balance: userSnapshot.child("kc_balance").val() },
+          libraryAccount: userSnapshot.child("library_account").val(),
+          libraryLoans: userSnapshot.child("library_loans").val(),
+          expirationDate: userSnapshot.child("expiration_date").val(),
+          dateOfBirth: userSnapshot.child("date_of_birth").val(),
+          caste: userSnapshot.child("caste").val(),
+          knightsCashAccount: userSnapshot.child("knights_cash_account").val(),
+          kcTransactions: userSnapshot.child("kc_transactions").val(),
+        }));
         navigation.navigate('Home');
       } else {
         // If the passwords do not match, show a warning message

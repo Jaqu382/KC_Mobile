@@ -10,13 +10,14 @@ export const userSlice = createSlice({
     ucfId: '',
     profilePicture: '',
     balance: 0,
-    kcBalance: 0,
+    kcBalance: { balance: 0 },
     libraryAccount: '',
     libraryLoans: [],
     expirationDate: '',
     dateOfBirth: '',
     caste: '',
-    knightsCashAccount: ''
+    knightsCashAccount: '',
+    kcTransactions: [],
   },
   reducers: {
     updateUser: (state, action) => {
@@ -31,13 +32,14 @@ export const userSlice = createSlice({
         ucfId: '',
         profilePicture: '',
         balance: 0,
-        kcBalance: 0,
+        kcBalance: { balance: 0 },
         libraryAccount: '',
         libraryLoans: [],
         expirationDate: '',
         dateOfBirth: '',
         caste: '',
-        knightsCashAccount: ''
+        knightsCashAccount: '',
+        kcTransactions: [],
       };
     },
   },
