@@ -41,9 +41,7 @@ export default function Login({navigation}) {
     const userSnapshot = await get(child(dbRef, `users/${userNid}`));
     if (userSnapshot.exists()) {
       // If the user exists, compare the passwords
-      const hashedPassword = userSnapshot.child("password").val();
-      console.log(hashedPassword);
-      console.log(userPassword);
+      const hashedPassword = userSnapshot.child("password").val();  
       if (hashedPassword === userPassword) {
         // If the passwords match, navigate to the home screen and update the user's information in Redux
         console.log("Passwords match");
