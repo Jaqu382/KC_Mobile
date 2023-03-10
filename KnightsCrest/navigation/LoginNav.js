@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
 import Login from '../screens/LoginStackScreen/Login';
-import HomeScreen from '../screens/LoginStackScreen/HomeScreen';
+import HomeScreenNav from './HomeScreenNav';
 
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export default function loginNav() {
 return (
@@ -18,10 +16,3 @@ return (
   </Stack.Navigator>
 );}
 
-function HomeScreenNav({ navigation, route }) {
-  return (
-    <Tab.Navigator initialRouteName="Home" useLegacyImplementation={false}>
-      <Tab.Screen name="HomeScreen" component={HomeScreen}/>
-    </Tab.Navigator>
-  );
-}
