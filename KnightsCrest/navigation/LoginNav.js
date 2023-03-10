@@ -12,7 +12,7 @@ export default function loginNav() {
 return (
   <Stack.Navigator>
     <Stack.Screen name="Login" component={Login} />
-    <Stack.Screen name="Home" component={HomeScreenNav}/>
+    <Stack.Screen name="Home Screen" component={HomeScreenNav}/>
   </Stack.Navigator>
 );}
 

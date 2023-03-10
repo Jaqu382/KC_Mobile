@@ -61,7 +61,7 @@ export default function Login({navigation}) {
           knightsCashAccount: userSnapshot.child("knights_cash_account").val(),
           kcTransactions: userSnapshot.child("kc_transactions").val(),
         }));
-        navigation.navigate('Home');
+        navigation.navigate('Home Screen');
       } else {
         // If the passwords do not match, show a warning message
         setWarning("Invalid password");

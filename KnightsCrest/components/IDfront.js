@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image} from "react-native";
 import format from "date-fns/format";
 import { Card } from "@rneui/themed";
+
 export default function IDfront(props) {
     const { fName, lName, kCashNum, libNumber, UCFID, caste, expDate, profile } =
       props;
@@ -49,7 +50,7 @@ export default function IDfront(props) {
   const styles = StyleSheet.create({
     IDcard: {
         backgroundColor:"#FFC904",
-        width: 230,
+        width: 200, 
         borderRadius: 10,
         shadowColor: "#000",
         shadowOffset: {
@@ -83,24 +84,13 @@ export default function IDfront(props) {
             alignItems: "flex-start",
         },
         profilePic: {
-            width: 100,
-            height: 100,
+            width: 80, 
+            height: 80, 
             borderRadius: 10,
             marginRight: 20,
         },
         userProps: {
-            fontSize: 12,
+            fontSize: 10, 
             color: "#666",
             marginBottom: 2,
-        },
-        caste: {
-            fontSize: 16,
-            fontWeight: "bold",
-            marginTop: 10,
-        },
-        userName: {
-            fontWeight: "bold",
-            fontSize: 16,
-            marginBottom: 5,
-        },
-    });
+        },})

@@ -8,8 +8,8 @@ const Tab = createBottomTabNavigator();
 export default function HomeScreenNav({ navigation, route }) {
     return (
       <Tab.Navigator initialRouteName="Home" useLegacyImplementation={false}>
-        <Tab.Screen name="Home" component={HomeScreen}/>
         <Tab.Screen name="Library" component={LibraryStack}/>
+        <Tab.Screen name="Home" component={HomeScreen}/>
         <Tab.Screen name="Knights Cash" component={KnightsCashStack}/>
       </Tab.Navigator>
     );
