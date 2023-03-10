@@ -9,7 +9,7 @@ import { getDatabase, ref, child, get } from "firebase/database";
 import { useDispatch } from 'react-redux';
 import { updateUser } from "../../slices/userSlice";
 
-
+import CryptoJS from 'crypto-js';
 
 // Warning message componant
 function WarningMessage({ message }) {
@@ -42,8 +42,11 @@ export default function Login({navigation}) {
     if (userSnapshot.exists()) {
       // If the user exists, compare the passwords
       const hashedPassword = userSnapshot.child("password").val();
+      console.log(hashedPassword);
+      console.log(userPassword);
       if (hashedPassword === userPassword) {
         // If the passwords match, navigate to the home screen and update the user's information in Redux
+        console.log("Passwords match");
         dispatch(
           updateUser({            
             firstName: userSnapshot.child("first_name").val(),
@@ -71,14 +74,11 @@ export default function Login({navigation}) {
       setWarning("Invalid account");
     }
   }
-  // Same hashing method used in admin javascript
+
   async function hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashedPassword = await crypto.subtle.digest("SHA-256", data);
-    return Array.from(new Uint8Array(hashedPassword))
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
+    const hashedPassword = CryptoJS.SHA256(password);
+    const hashedBase64 = hashedPassword.toString(CryptoJS.enc.Base64);
+    return hashedBase64;
   }
 
   return (
