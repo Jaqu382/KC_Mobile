@@ -1,25 +1,44 @@
 import { SafeAreaView, View, StyleSheet, Text } from "react-native";
 import LibraryItem from "../../components/LibraryItem";
+import { FlatList } from "react-native";
 
-export default function LibraryLoans({navigation, route}){
-    // For testing
-    let item = "DTC Alienware Laptop";
-    let itemID = 1;
-    let dueDate = "2022-02-10T09:00:00" 
-    let pickupLocation = "UCF Downtown Tech Lending"
-    return(
-        <SafeAreaView style = {styles.container}>
-                <View>
-                    <Text>Loans</Text>
-                </View>
-                    <LibraryItem 
-                    item = {item}
-                    itemID = {itemID} 
-                    dueDate = {dueDate}
-                    pickupLocation = {pickupLocation} />
-        </SafeAreaView>
-    )
-}
+// Redux
+import { useSelector } from "react-redux";
+import { selectUser } from '../../slices/userSlice';
+
+
+export default function LibraryLoans({navigation, route}) {
+
+    const user = useSelector(selectUser);
+
+    const loans = user.libraryLoans;
+  
+    const renderItem = ({ item }) => (
+      <LibraryItem 
+        item={item.item_name}
+        itemID={item.item_id} 
+        dueDate={item.due_date}
+        pickupLocation={item.pick_up_location}
+      />
+    );
+  
+    return (
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text>Loans</Text>
+        </View>
+        {loans.length > 0 ? (
+          <FlatList
+            data={loans}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.item_id.toString()}
+          />
+        ) : (
+          <Text>No loans</Text>
+        )}
+      </SafeAreaView>
+    );
+  }
 
 const styles = StyleSheet.create(
     {

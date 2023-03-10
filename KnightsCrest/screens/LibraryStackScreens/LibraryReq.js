@@ -2,7 +2,15 @@ import { Card } from "@rneui/themed";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import LibraryReqItem from "../../components/LibraryReqItem";
 
+// Redux
+import { useSelector } from "react-redux";
+import { selectUser } from '../../slices/userSlice';
+
+
 export default function LibraryReq({navigation, route}){
+
+    const user = useSelector(selectUser);
+    
     //For testing
     let hasRequest = true;
     let requestedItem = "Neuromancer / Gibson, William"

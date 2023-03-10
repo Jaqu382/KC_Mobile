@@ -11,8 +11,7 @@ import { selectUser } from '../../slices/userSlice';
 export default function KnightsCashBalance({ navigation, route }) {
     // Grab user from redux
     const user = useSelector(selectUser);
-    console.log(user);
-  
+    
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   
