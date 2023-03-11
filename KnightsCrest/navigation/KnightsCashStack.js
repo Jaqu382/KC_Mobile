@@ -5,8 +5,6 @@ import KnightsCashMain from '../screens/KnightsCashScreens/KnightsCashMain';
 import KnightsCashBalance from "../screens/KnightsCashScreens/KnightsCashBalance";
 import KnightsCashAdd from "../screens/KnightsCashScreens/KnightsCashAdd";
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 const  CashStack = createStackNavigator();
 export default function KnightsCashStack() {
     return(
