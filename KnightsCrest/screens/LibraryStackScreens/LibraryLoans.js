@@ -10,7 +10,6 @@ import { selectUser } from '../../slices/userSlice';
 export default function LibraryLoans({navigation, route}) {
 
     const user = useSelector(selectUser);
-
     const loans = user.libraryLoans;
   
     const renderItem = ({ item }) => (
@@ -27,26 +26,29 @@ export default function LibraryLoans({navigation, route}) {
         <View>
           <Text>Loans</Text>
         </View>
+        <View style={styles.loansContainer}>
         {loans.length > 0 ? (
           <FlatList
-            data={loans}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.item_id.toString()}
+          data={loans}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.item_id.toString()}
           />
-        ) : (
-          <Text>No loans</Text>
-        )}
+  ) : (
+    <Text>No loans</Text>
+  )}
+</View>
       </SafeAreaView>
-    );
+    );  
   }
-
-const styles = StyleSheet.create(
-    {
-        container: {
-            flex: 1,
-            backgroundColor: '#fff',
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
-    }
-)
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    loansContainer: {
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });
