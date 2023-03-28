@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Login from './screens/LoginStackScreen/Login';
+import SettingsStack from './navigation/SettingsStack';
 import HomeTabs from './navigation/HomeTabs';
 import HomeScreen from './screens/LoginStackScreen/HomeScreen';
 
@@ -58,7 +59,7 @@ function App() {
             ),
           }}
         />
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Settings" component={SettingsStack} />
         <Stack.Screen name="HomeTabs" component={HomeTabs} />
       </Stack.Navigator>
     ): (
