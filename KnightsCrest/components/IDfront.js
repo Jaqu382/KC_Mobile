@@ -7,7 +7,7 @@ export default function IDfront(props) {
     props;
 
   let myDate = new Date(expDate);
-  let formatDate = format(myDate, "MM/dd/yyyy");
+
 
   return (
     <Card containerStyle={styles.IDcard}>
@@ -46,7 +46,7 @@ export default function IDfront(props) {
               <Text style={styles.subtitle}>Knights Cash:</Text> {kCashNum}
             </Text>
             <Text style={styles.userProps}>
-              <Text style={styles.subtitle}>Expiration:</Text> {formatDate}
+              <Text style={styles.subtitle}>Expiration:</Text> {expDate}
             </Text>
           </View>
         </View>

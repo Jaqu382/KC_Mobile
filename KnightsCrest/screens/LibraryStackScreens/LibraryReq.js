@@ -48,11 +48,12 @@ export default function LibraryReq({navigation, route}){
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 10,
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+      },
     reqItem: {
         width: 300,
         height:50,

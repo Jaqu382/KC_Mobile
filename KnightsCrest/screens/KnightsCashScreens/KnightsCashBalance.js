@@ -16,55 +16,11 @@ export default function KnightsCashBalance({ navigation, route }) {
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   
     return (
-      <SafeAreaView style={styles.container}>
-        <View>
-          <Text>
-            Welcome {user.firstName} {user.lastName}
-          </Text>
-          <Card containerStyle={styles.subSec}>
-            <View style={styles.horizontalFlex}>
-              <Text>Balance: </Text>
-              <Text>${user.kcBalance.balance.balance.toFixed(2)}</Text>
-            </View>
-          </Card>
-          <Card containerStyle={styles.subSec}>
-            <View style={styles.horizontalFlex}>
-              <Text>Suspend Card: </Text>
-              <Switch
-                trackColor={{ false: "#767577", true: "#FFC904" }}
-                thumbColor="#fff"
-                onValueChange={toggleSwitch}
-                activeThumbColor="#fff"
-                value={isEnabled}
-              />
-            </View>
-            <Text>KnightsCash number {user.knightsCashAccount}</Text>
-          </Card>
-          <Card containerStyle={styles.subSec}>
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
-              <Text>Transaction History</Text>
-            </View>
-            <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-              <Text>Date</Text>
-              <Text>Funds In/Out</Text>
-            </View>
-            {user.kcTransactions && user.kcTransactions.length > 0 ? (
-              <View>
-                {user.kcTransactions.map((transaction, index) => (
-                  <Transaction key={index} date={transaction.date} amount={transaction.amount} />
-                ))}
-              </View>
-            ) : (
-              <View style={{ alignItems: "center", marginVertical: 20 }}>
-                <Text>No transaction history found.</Text>
-              </View>
-            )}
-          </Card>
-        </View>
-      </SafeAreaView>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Hello World</Text>
+      </View>
     );
   }
-
 
 const styles = StyleSheet.create({
     container: {

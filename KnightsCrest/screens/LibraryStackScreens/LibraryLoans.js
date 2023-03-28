@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
 
-export default function LibraryLoans({navigation, route}) {
+export default function LibraryLoans({navigation}) {
 
     const user = useSelector(selectUser);
     const loans = user.libraryLoans;
@@ -24,6 +24,7 @@ export default function LibraryLoans({navigation, route}) {
     return (
       <SafeAreaView style={styles.container}>
         <View>
+        <View>
           <Text>Loans</Text>
         </View>
         <View style={styles.loansContainer}>
@@ -36,12 +37,13 @@ export default function LibraryLoans({navigation, route}) {
   ) : (
     <Text>No loans</Text>
   )}
-</View>
+</View></View>
       </SafeAreaView>
     );  
   }
   const styles = StyleSheet.create({
     container: {
+      paddingTop: 10,
       flex: 1,
       backgroundColor: "#fff",
       alignItems: "center",

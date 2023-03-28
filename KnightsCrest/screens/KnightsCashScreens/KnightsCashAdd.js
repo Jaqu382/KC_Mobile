@@ -2,49 +2,12 @@ import { View, Text, StyleSheet, Pressable, SafeAreaView, TextInput} from "react
 import { Card } from '@rneui/themed';
 
 export default function KnightsCashAdd({navigation, route}){
-    return(
-        <SafeAreaView style = {styles.container}>
-            <View>
-                <Text>ADD KNIGHTS CASH FUNDS</Text>
-            </View>
-            <Card containerStyle = {styles.formCard}>
-                <View>
-                    <Text>Amount to Add</Text>
-                    <TextInput style = {styles.fieldInput}></TextInput>
-                </View>
-            </Card>
-            <Card containerStyle = {styles.formCard}>
-                <View>
-                    <Text>Email Address</Text>
-                    <TextInput style = {styles.fieldInput}></TextInput>
-                    </View>
-                <View>
-                    <Text>Cardholder Name</Text>
-                    <TextInput style = {styles.fieldInput}></TextInput>
-                    </View>
-                <View>
-                    <Text>Card Number</Text>
-                    <TextInput style = {styles.fieldInput}></TextInput>
-                </View>
-                <View style = {{flexDirection: "Row"}}>
-                    <View style = {{paddingRight: 5}}>
-                        <Text>Security Code</Text>
-                        <TextInput style = {[styles.fieldInputSmall]}></TextInput>
-                    </View>
-                    <View>
-                        <Text>Exp. Date</Text>
-                        <TextInput style = {styles.fieldInputMedium}></TextInput>
-                    </View>
-                </View>
-            </Card>
-            <View style = {{paddingTop: 10}}>
-                <Pressable style = {styles.button}>
-                    <Text>Add Funds</Text>
-                </Pressable>
-            </View>
-        </SafeAreaView>
-    )
-}
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Hello World</Text>
+        </View>
+      );
+    }
 
 const styles = StyleSheet.create({
     container: {

@@ -10,7 +10,7 @@ export default function LibraryFees({ navigation }) {
   const fineBalance = user.fineBalance;
   const kcBalance = user.kcBalance.balance.balance;
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style = {styles.container}>
       <View>
         <Text>Loan balance:</Text>
       </View>

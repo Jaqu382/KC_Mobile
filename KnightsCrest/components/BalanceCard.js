@@ -5,7 +5,6 @@ export default function BalanceCard(props){
     
     if(hasBalance){
     return(
-    <>
         <Card containerStyle = {styles.balanceCard}>
         <View style = {{flexDirection: "row", justifyContent: "space-between"}}>
             <Text>Balance:</Text>
@@ -14,7 +13,6 @@ export default function BalanceCard(props){
             </Text>
         </View>
         </Card>
-    </>
   )}
   else
   {

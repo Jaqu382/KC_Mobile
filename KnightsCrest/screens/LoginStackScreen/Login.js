@@ -16,7 +16,7 @@ function WarningMessage({ message }) {
   return message ? <Text style={styles.warningText}>{message}</Text> : null;
 }
 
-export default function Login({navigation}) {
+export default function Login({navigation, onLoginSuccess}) {
   const dispatch = useDispatch();
   // Control styling
   const [accountIsFocus, setAccountFocus] = useState(styles.fieldInput);
@@ -43,6 +43,7 @@ export default function Login({navigation}) {
       // If the user exists, compare the passwords
       const hashedPassword = userSnapshot.child("password").val();  
       if (hashedPassword === userPassword) {
+        onLoginSuccess();
         // If the passwords match, navigate to the home screen and update the user's information in Redux
         dispatch(updateUser({
           nid: userNid,
@@ -62,7 +63,7 @@ export default function Login({navigation}) {
           knightsCashAccount: userSnapshot.child("knights_cash_account").val(),
           kcTransactions: userSnapshot.child("kc_transactions").val(),
         }));
-        navigation.navigate('Home Screen');
+        onLoginSuccess();
       } else {
         // If the passwords do not match, show a warning message
         setWarning("Invalid password");
