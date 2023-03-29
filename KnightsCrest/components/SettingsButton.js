@@ -1,10 +1,10 @@
 import React from 'react';
 import { Pressable, Image, StyleSheet } from 'react-native';
 
-const LogoutButton = ({ onPress }) => {
+const SettingsButton = ({ onPress }) => {
   return (
     <Pressable onPress={onPress} style={styles.button}>
-      <Image source={require('../assets/images/logout.png')} style={styles.icon} />
+      <Image source={require('../assets/images/settomgs')} style={styles.icon} />
     </Pressable>
   );
 };
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LogoutButton;
+export default SettingsButton;
