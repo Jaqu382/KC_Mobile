@@ -4,33 +4,35 @@ import { Card } from '@rneui/themed';
 import { View, Text, SafeAreaView, Switch, StyleSheet, Pressable } from "react-native"
 import sharedStyles from "../../SharedStyle";
 
-// Dark Mode imports
+
+
+const FontSizeButton = ({ size, onPress }) => (
+    <TouchableOpacity onPress={() => onPress(size)} style={styles.fontSizeButton}>
+      <Text style={{ fontSize: size }}>{size}</Text>
+    </TouchableOpacity>
+  );
+  
 
 export default function SettingsScreen(){
+    const [appFontSize, setAppFontSize] = useState(14);
 
-    // Set up dark mode
-    const [isEnabled, setIsEnabled] = useState(false);
+    const handleFontSizeChange = (size) => {
+      setAppFontSize(size);
+    };
+    return (
+        <View style={styles.container}>
+          <Text style={[styles.title, { fontSize: appFontSize }]}>
+            Font Size Settings
+          </Text>
+          <View style={styles.fontSizeContainer}>
+            <FontSizeButton size={14} onPress={handleFontSizeChange} />
+            <FontSizeButton size={18} onPress={handleFontSizeChange} />
+            <FontSizeButton size={22} onPress={handleFontSizeChange} />
+          </View>
+        </View>
+      );
 
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-
-    const onRadioBtnSelect = (item) => {
-        let updateState = isSelected.map((isSelectedItem) => 
-        isSelectedItem.id === item.id ? 
-        {...isSelectedItem, selected: true}:
-        {...isSelectedItem, selected: false});
-        setIsSelected(updateState);
-    }
-
-    const [isSelected, setIsSelected] = useState([
-        { id: 1, value: -4, name: "A", selected: false },
-        { id: 2, value: -2, name: "A", selected: false },
-        { id: 3, value: 0, name: "A", selected: true },
-        { id: 4, value: 2, name: "A", selected: false },
-        { id: 5, value: 4, name: "A", selected: false }
-      ]);
-
-    
-    
+/*    
     return(
         <SafeAreaView style = {sharedStyles .container}>
             <View>
@@ -72,21 +74,28 @@ export default function SettingsScreen(){
             </View>
             <View style={styles.divider}/>
         </SafeAreaView>
-    )
+    )*/
 }
 
 const styles = StyleSheet.create({
-    darkModeContainer: {
-        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    fontSizeButtonSelected:{
-        borderWidth: 1,
-        borderColor: '#707070',
-        backgroundColor: "#ffc904",
-        padding: 15
+    title: {
+      marginBottom: 20,
     },
-    fontSizeButton:{
-        borderWidth: 1,
-        borderColor: '#707070',
-        padding: 15
-},})
+    fontSizeContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    fontSizeButton: {
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      borderWidth: 1,
+      borderColor: 'black',
+      borderRadius: 4,
+      marginHorizontal: 5,
+    },
+  });

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Pressable, Image, StyleSheet } from 'react-native';
+import { Pressable, Image, StyleSheet, View } from 'react-native';
 
 const SettingsButton = ({ onPress }) => {
   return (
-    <Pressable onPress={onPress} style={styles.button}>
-      <Image source={require('../assets/images/settomgs')} style={styles.icon} />
-    </Pressable>
+    <View style = {styles.wrapper}>
+      <Pressable onPress={onPress} style={styles.button}>
+        <Image source={require('../assets/images/settingsIcon.png')} style={styles.icon} />
+      </Pressable>
+    </View>
   );
 };
 
@@ -16,6 +18,9 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
+  },
+  wrapper: {
+    flexDirection: 'row',
   },
 });
 

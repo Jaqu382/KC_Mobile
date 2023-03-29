@@ -9,7 +9,7 @@ const HomeStack = ({onLogout}) => {
         <Stack.Screen name="Home" component={HomeScreen}         
         options={{
         headerRight: () => (
-            <Button onPress={onLogout} title="Logout" color="#000" />
+            <Button onPress={onLogout} title="Logout" color="#FFC904" />
           ),
         }}/>
       </Stack.Navigator>

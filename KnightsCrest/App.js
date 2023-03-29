@@ -1,8 +1,10 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux'
+import { View } from 'react-native';
 
 // Storage
 import store from './store'
@@ -11,16 +13,21 @@ import { NavigationContainer } from '@react-navigation/native';
 
 // Components
 import Login from './screens/LoginStackScreen/Login';
-import SettingsStack from './navigation/SettingsStack';
 import HomeTabs from './navigation/HomeTabs';
 import HomeScreen from './screens/LoginStackScreen/HomeScreen';
-import LogoutButton from './components/LogoutButton';
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+import SettingsScreen from './screens/SettingsScreens/SettingsScreen';
 
-  React.useEffect(() => {
+// Buttons
+import SettingsButton from './components/SettingsButton';
+import LogoutButton from './components/LogoutButton';
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
     checkLoginStatus();
   }, []);
+
   const checkLoginStatus = async () => {
     try {
       const loggedIn = await AsyncStorage.getItem('loggedIn');
@@ -43,6 +50,11 @@ function App() {
       console.log('Error logging out:', error);
     }
   };
+
+  const navigateToSettings = (navigation) => {
+    navigation.navigate('Settings');
+  };
+
   const Stack = createStackNavigator();
 
   return(
@@ -51,22 +63,23 @@ function App() {
       {isLoggedIn ? (
         <Stack.Navigator
           screenOptions={{
-            headerTitleStyle:{color: '#fff'},
-            headerStyle: { backgroundColor: "#000", }, // Set the header background color to yellow
+            headerStyle: { backgroundColor: "#FFC904", },
           }}
         >
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{
-
+            options={({ navigation }) => ({
               headerRight: () => (
-                <LogoutButton onPress={handleLogout} />
+                <View style={{ flexDirection: 'row' }}>
+                  <SettingsButton onPress={() => navigateToSettings(navigation)} />
+                  <LogoutButton onPress={handleLogout} />
+                </View>
               ),
-            }}
+            })}
           />
-          <Stack.Screen name="Settings" component={SettingsStack} />
-          <Stack.Screen name="NestedTabs" component={HomeTabs} />
+          <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="HomeTabs" component={HomeTabs} />
         </Stack.Navigator>
       ): (
           <Stack.Navigator>
