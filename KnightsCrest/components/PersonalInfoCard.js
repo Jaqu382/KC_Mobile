@@ -22,7 +22,7 @@ export default function PersonalInfoCard({ user }) {
         <Text style={sharedStyles.bodyText}>{user.libraryAccount} </Text>
         <Image
           style={styles.icon}
-          source={require('../assets/images/openBook.png')}
+          source={require('../assets/images/book.png')}
           alt="Library book icon"
         />
       </View>
