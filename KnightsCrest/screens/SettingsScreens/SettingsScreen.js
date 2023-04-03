@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFontSize } from './path/to/fontSizeSlice';
+import { setFontSize } from '../../slices/fontSizeSlice'
+import { Switch } from 'react-native';
 
 const FontSizeButton = ({ size, onPress }) => (
   <TouchableOpacity onPress={() => onPress(size)} style={styles.fontSizeButton}>
@@ -9,19 +10,9 @@ const FontSizeButton = ({ size, onPress }) => (
   </TouchableOpacity>
 );
 
-const SettingsScreen = () => {
-  const dispatch = useDispatch();
-
-  // font size controls
-  const appFontSize = useSelector((state) => state.fontSize.fontSize);
-
-  const handleFontSizeChange = (size) => {
-    dispatch(setFontSize(size));
-  };
-
-  // dark mode controls
 
   const SettingsScreen = () => {
+
     const dispatch = useDispatch();
     const appFontSize = useSelector((state) => state.fontSize.fontSize);
     const isDarkModeEnabled = useSelector((state) => state.darkMode.isEnabled);
