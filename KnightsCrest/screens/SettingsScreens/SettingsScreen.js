@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Switch } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFontSize } from '../../slices/fontSizeSlice'
-import { Switch } from 'react-native';
+import { toggleDarkMode } from '../../slices/darkModeSlice';
 
 const FontSizeButton = ({ size, onPress }) => (
   <TouchableOpacity onPress={() => onPress(size)} style={styles.fontSizeButton}>

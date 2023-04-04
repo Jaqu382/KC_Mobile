@@ -18,6 +18,7 @@ export default function HomeTabs({ navigation, route }) {
       tabBarInactiveTintColor: 'black',
       }}
 >
+  <Tab.Screen name="Home" component={HomeScreen} />
   <Tab.Screen name="Library" component={LibraryStack} />
   <Tab.Screen name="Knights Cash" component={KnightsCashStack} />
 </Tab.Navigator>

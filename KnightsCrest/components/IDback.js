@@ -4,7 +4,7 @@ import { Card } from "@rneui/base";
 import QR from "./QR";
 
 
-import sharedStyles from "../SharedStyle";
+import sharedStyles from "../useDynamicStyle";
 export default function IDback(props){
     const {user} = props;
     return(

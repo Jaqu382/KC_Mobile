@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import sharedStyles from '../SharedStyle';
+import sharedStyles from '../useDynamicStyle';
 
 export default function PersonalInfoCard({ user }) {
   return (
