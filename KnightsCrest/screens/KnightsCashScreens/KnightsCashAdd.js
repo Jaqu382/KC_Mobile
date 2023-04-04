@@ -1,7 +1,23 @@
 import { View, Text, StyleSheet, Pressable, SafeAreaView, TextInput} from "react-native";
 import { Card } from '@rneui/themed';
 
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+
+
 export default function KnightsCashAdd({navigation, route}){
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset the nested stack navigator when the tab is focused
+      const unsubscribe = navigation.addListener('tabPress', (e) => {
+        e.preventDefault(); // Prevent the default behavior
+        navigation.navigate('Knights Cash Menu'); // Navigate to the first screen of the nested stack navigator
+      });
+
+      return unsubscribe;
+    }, [navigation])
+  );
+
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Text>Hello World</Text>

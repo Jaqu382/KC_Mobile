@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 export default function LibraryStack() {
     return(
           <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="LibraryMenu" component={LibraryMain} />
+            <Stack.Screen name="Library Menu" component={LibraryMain} />
             <Stack.Screen name="Loans" component={LibraryLoans} />
             <Stack.Screen name="Requests" component={LibraryReq} />
             <Stack.Screen name="Fees" component={LibraryFees} />        

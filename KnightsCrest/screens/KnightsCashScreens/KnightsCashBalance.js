@@ -3,17 +3,34 @@ import { View, Text, StyleSheet, Switch,SafeAreaView} from "react-native";
 import { Card } from "@rneui/themed";
 import Transaction from "../../components/Transaction";
 
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
 
 export default function KnightsCashBalance({ navigation, route }) {
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset the nested stack navigator when the tab is focused
+      const unsubscribe = navigation.addListener('tabPress', (e) => {
+        e.preventDefault(); // Prevent the default behavior
+        navigation.navigate('Knights Cash Menu'); // Navigate to the first screen of the nested stack navigator
+      });
+
+      return unsubscribe;
+    }, [navigation])
+  );
     // Grab user from redux
     const user = useSelector(selectUser);
     
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+
+    
   
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
