@@ -14,7 +14,6 @@ import { NavigationContainer } from '@react-navigation/native';
 // Components
 import Login from './screens/LoginStackScreen/Login';
 import HomeTabs from './navigation/HomeTabs';
-import HomeScreen from './screens/LoginStackScreen/HomeScreen';
 import SettingsScreen from './screens/SettingsScreens/SettingsScreen';
 
 // Buttons
@@ -68,7 +67,7 @@ function App() {
         >
           <Stack.Screen
             name="Home"
-            component={HomeScreen}
+            component={HomeTabs}
             options={({ navigation }) => ({
               headerRight: () => (
                 <View style={{ flexDirection: 'row' }}>
@@ -79,7 +78,6 @@ function App() {
             })}
           />
           <Stack.Screen name="Settings" component={SettingsScreen} />
-          <Stack.Screen name="HomeTabs" component={HomeTabs} />
         </Stack.Navigator>
       ): (
           <Stack.Navigator>
