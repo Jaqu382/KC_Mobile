@@ -1,43 +1,61 @@
-import { useState } from "react";
-import { View, Text, StyleSheet, Switch,SafeAreaView} from "react-native";
+import react, { useState, useEffect } from 'react';
+import { View, Text, FlatList, StyleSheet, Switch, SafeAreaView} from "react-native";
 import { Card } from "@rneui/themed";
-import Transaction from "../../components/Transaction";
 
-import { useFocusEffect } from '@react-navigation/native';
-import React, { useEffect } from 'react';
+import Transaction from "../../components/Transaction";
 
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
+// Firebase
+
+import db from '../../firebase.js';
+
 
 export default function KnightsCashBalance({ navigation, route }) {
 
-  useFocusEffect(
-    React.useCallback(() => {
-      // Reset the nested stack navigator when the tab is focused
-      const unsubscribe = navigation.addListener('tabPress', (e) => {
-        e.preventDefault(); // Prevent the default behavior
-        navigation.navigate('Knights Cash Menu'); // Navigate to the first screen of the nested stack navigator
-      });
+  const user = useSelector(selectUser);
 
-      return unsubscribe;
-    }, [navigation])
+  const [isCardSuspended, setIsCardSuspended] = useState(false);
+  const toggleSwitch = () => setIsCardSuspended((previousState) => !previousState);
+
+  const renderItem = ({ item: transaction }) => (
+    <View>
+      <Text>{transaction.date}</Text>
+      <Text>{transaction.amount ? transaction.amount : ''}</Text>
+    </View>
   );
-    // Grab user from redux
-    const user = useSelector(selectUser);
-    
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
-    
-  
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Hello World</Text>
+  return (
+    <SafeAreaView>
+      <View>
+        <Text>Account Balance: {user.kcBalance.balance}</Text>
       </View>
-    );
-  }
+      <View>
+        <Text>Suspend Card</Text>
+        <Switch
+          onValueChange={toggleSwitch}
+          value={isCardSuspended}
+        />
+      </View>
+      <View>
+        <Text>Transaction History:</Text>
+        <FlatList
+          data={user.kcTransactions}
+          renderItem={renderItem}
+          keyExtractor={(transaction) => transaction.id.toString()}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
     container: {

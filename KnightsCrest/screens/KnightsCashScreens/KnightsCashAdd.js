@@ -86,71 +86,115 @@ export default function KnightsCashAdd({navigation, route}){
   }
 
 return (
-  <View style={styles.container}>
-    <Text style={styles.title}>Add Funds</Text>
-    <Text>Select Amount:</Text>
-    <View style={styles.amountButtons}>
-      {amounts.map((amount) => (
-        <TouchableOpacity
-          key={amount}
-          style={selectedAmount === amount ? styles.amountButtonSelected : styles.amountButton}
-          onPress={() => setSelectedAmount(amount)}
-        >
-          <Text style={styles.amountButtonText}>${amount}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-    <Text>Email:</Text>
-    <TextInput
-      style={styles.input}
-      value={email}
-      onChangeText={setEmail}
-      keyboardType="email-address"
-    />
-    {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
-    <Text>Card Number:</Text>
-    <TextInput
-      style={styles.input}
-      value={cardNumber}
-      onChangeText={setCardNumber}
-      keyboardType="number-pad"
-      maxLength={19}
-    />
-    {cardNumberError ? (
-      <Text style={styles.errorText}>{cardNumberError}</Text>
-    ) : null}
-    <Text>Expiry Date (MM/YY):</Text>
-    <TextInput
-      style={styles.input}
-      value={expiryDate}
-      onChangeText={setExpiryDate}
-      keyboardType="number-pad"
-      maxLength={5}
-    />
-    {expiryDateError ? (
-      <Text style={styles.errorText}>{expiryDateError}</Text>
-    ) : null}
-    <Text>CVV:</Text>
-    <TextInput
-      style={styles.input}
-      value={cvv}
-      onChangeText={setCVV}
-      keyboardType="number-pad"
-      maxLength={4}
-    />
-    {cvvError ? <Text style={styles.errorText}>{cvvError}</Text> : null}
-    <TouchableOpacity style={styles.submitButton} onPress={handleAddFunds}>
-      <Text style={styles.submitButtonText}>Add Funds</Text>
-    </TouchableOpacity>
-  </View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Add Funds</Text>
+      <Text>Select an amount:</Text>
+      <View style={styles.amountButtons}>
+        {[5, 10, 15, 20, 25].map(amount => (
+          <TouchableOpacity
+            key={amount}
+            style={
+              amount === selectedAmount
+                ? styles.amountButtonSelected
+                : styles.amountButton
+            }
+            onPress={() => setSelectedAmount(amount)}>
+            <Text style={styles.amountButtonText}>${amount}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+      <Text>Email:</Text>
+      <TextInput
+        style={styles.input}
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />        
+      {emailError ? <Text style={styles.errorText}>{emailError}</Text> : null}
+      <Text>Card Number:</Text>
+      <TextInput
+        style={styles.input}
+        value={cardNumber}
+          onChangeText={setCardNumber}
+          keyboardType="number-pad"
+          maxLength={19}/>
+            {cardNumberError ? (
+    <Text style={styles.errorText}>{cardNumberError}</Text>
+  ) : null}
+  <Text>Expiry Date (MM/YY):</Text>
+  <TextInput
+    style={styles.input}
+    value={expiryDate}
+    onChangeText={setExpiryDate}
+    keyboardType="number-pad"
+    maxLength={5}
+  />
+  {expiryDateError ? (
+    <Text style={styles.errorText}>{expiryDateError}</Text>
+  ) : null}
+  <Text>CVV:</Text>
+  <TextInput
+    style={styles.input}
+    value={cvv}
+    onChangeText={setCVV}
+    keyboardType="number-pad"
+    maxLength={4}
+  />
+  {cvvError ? <Text style={styles.errorText}>{cvvError}</Text> : null}
+  <TouchableOpacity style={styles.submitButton} onPress={handleAddFunds}>
+    <Text style={styles.submitButtonText}>Add Funds</Text>
+  </TouchableOpacity>
+</View>
 );
     }
 
-const styles = StyleSheet.create({
-    container: {
+    const styles = StyleSheet.create({
+      container: {
       flex: 1,
-      backgroundColor: '#fff',
+      padding: 20,
+      },
+      title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 20,
+      },
+      amountButtons: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 20,
+      },
+      amountButton: {
+      padding: 10,
+      borderWidth: 1,
+      borderColor: 'black',
+      },
+      amountButtonSelected: {
+      padding: 10,
+      borderWidth: 1,
+      borderColor: 'black',
+      backgroundColor: 'black',
+      },
+      amountButtonText: {
+      color: 'black',
+      },
+      input: {
+      borderWidth: 1,
+      borderColor: 'black',
+      padding: 10,
+      marginBottom: 10,
+      },
+      submitButton: {
+      backgroundColor: 'black',
+      padding: 10,
       alignItems: 'center',
-      justifyContent: 'center',
-    }
-    })
+      },
+      submitButtonText: {
+      color: 'white',
+      fontWeight: 'bold',
+      },
+      errorText: {
+      color: 'red',
+      marginBottom: 10,
+      },
+      });
