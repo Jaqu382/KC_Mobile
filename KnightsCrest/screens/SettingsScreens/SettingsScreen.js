@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Switch } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFontSize } from './path/to/fontSizeSlice';
+import { setFontSize } from '../../slices/fontSizeSlice'
+import { toggleDarkMode } from '../../slices/darkModeSlice';
 
 const FontSizeButton = ({ size, onPress }) => (
   <TouchableOpacity onPress={() => onPress(size)} style={styles.fontSizeButton}>
@@ -9,13 +10,21 @@ const FontSizeButton = ({ size, onPress }) => (
   </TouchableOpacity>
 );
 
-const SettingsScreen = () => {
-  const dispatch = useDispatch();
-  const appFontSize = useSelector((state) => state.fontSize.fontSize);
 
-  const handleFontSizeChange = (size) => {
-    dispatch(setFontSize(size));
-  };
+  const SettingsScreen = () => {
+
+    const dispatch = useDispatch();
+    const appFontSize = useSelector((state) => state.fontSize.fontSize);
+    const isDarkModeEnabled = useSelector((state) => state.darkMode.isEnabled);
+  
+    const handleFontSizeChange = (size) => {
+      dispatch(setFontSize(size));
+    };
+  
+    const handleDarkModeToggle = () => {
+      dispatch(toggleDarkMode());
+    };
+  
 
   return (
     <View style={styles.container}>
@@ -26,6 +35,17 @@ const SettingsScreen = () => {
         <FontSizeButton size={14} onPress={handleFontSizeChange} />
         <FontSizeButton size={18} onPress={handleFontSizeChange} />
         <FontSizeButton size={22} onPress={handleFontSizeChange} />
+
+      <Text style={[styles.title, { fontSize: appFontSize }]}>
+      Dark Mode
+      </Text>
+      <Switch
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={isDarkModeEnabled ? '#f5dd4b' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={handleDarkModeToggle}
+        value={isDarkModeEnabled}
+      />
       </View>
     </View>
   );

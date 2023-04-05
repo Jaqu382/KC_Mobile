@@ -1,6 +1,20 @@
 import { View, Text , StyleSheet, Pressable, SafeAreaView } from "react-native";
+import React, { useEffect } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 
-export default function KnightsCashMain({navigation, route}){
+export default function KnightsCashMain({navigation}){
+    useFocusEffect(
+        React.useCallback(() => {
+          // Reset the nested stack navigator when the tab is focused
+          const unsubscribe = navigation.addListener('tabPress', (e) => {
+            e.preventDefault(); // Prevent the default behavior
+            navigation.navigate('Knights Cash Menu'); // Navigate to the first screen of the nested stack navigator
+          });
+    
+          return unsubscribe;
+        }, [navigation])
+      );
+    
     return(
     <SafeAreaView style = {styles.container}>
         <View>
