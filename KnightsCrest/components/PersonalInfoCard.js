@@ -22,7 +22,7 @@ export default function PersonalInfoCard({ user }) {
         <Text style={sharedStyles.bodyText}>{user.libraryAccount} </Text>
         <Image
           style={styles.icon}
-          source={require('../assets/images/book.png')}
+          source={require('../assets/images/libraryCard.png')}
           alt="Library book icon"
         />
       </View>
@@ -30,7 +30,7 @@ export default function PersonalInfoCard({ user }) {
         <Text style={sharedStyles.bodyText}>{user.knightsCashAccount} </Text>
         <Image
           style={styles.icon}
-          source={require('../assets/images/knightsCashIcon.png')}
+          source={require('../assets/images/knightsCash.png')}
           alt="Knights Cash icon"
         />
       </View>
