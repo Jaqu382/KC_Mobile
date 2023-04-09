@@ -4,7 +4,7 @@
     "slug": "KnightsCrest",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/knightsCrestIcon.png",
+    "icon": "./assets/knightsCrestIconWhiteBackground.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/knightsCrestIcon.png",
