@@ -30,7 +30,7 @@ export default function PersonalInfoCard({ user }) {
         <Text style={sharedStyles.bodyText}>{user.knightsCashAccount} </Text>
         <Image
           style={styles.icon}
-          source={require('../assets/images/KnightsCashLogo.png')}
+          source={require('../assets/images/settingsIcon.png')}
           alt="Knights Cash icon"
         />
       </View>
