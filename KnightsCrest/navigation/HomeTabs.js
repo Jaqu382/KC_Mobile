@@ -7,8 +7,8 @@ import { Image } from 'react-native';
 const Tab = createBottomTabNavigator();
 
 //Tab components
-const HomeIcon = () => <Image source={require('../assets/images/homeIcon.png')} style={{ width: 24, height: 24 }} />;
-const LibraryIcon = () => <Image source={require('../assets/images/bookShelf.png')} style={{ width: 24, height: 24 }} />;
+const HomeIcon = () => <Image source={require('../assets/images/homeButton.png')} style={{ width: 24, height: 24 }} />;
+const LibraryIcon = () => <Image source={require('../assets/images/book.png')} style={{ width: 24, height: 24 }} />;
 const KCashIcon = () => <Image source={require('../assets/images/walletIcon.png')} style={{ width: 24, height: 24 }} />;
 
 export default function HomeTabs({ navigation, route }) {
