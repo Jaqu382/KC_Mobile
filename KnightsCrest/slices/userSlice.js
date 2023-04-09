@@ -19,6 +19,7 @@ export const userSlice = createSlice({
     caste: '',
     knightsCashAccount: '',
     kcTransactions: [],
+    cardSuspended: false,
   },
   reducers: {
     updateUser: (state, action) => {
@@ -42,12 +43,16 @@ export const userSlice = createSlice({
         caste: '',
         knightsCashAccount: '',
         kcTransactions: [],
+        cardSuspended: false,
       };
+    },
+    toggleCardSuspension: (state) => {
+      state.cardSuspended = !state.cardSuspended;
     },
   },
 });
 
-export const { updateUser, clearUser } = userSlice.actions;
+export const { updateUser, clearUser,toggleCardSuspension } = userSlice.actions;
 export const selectUser = (state) => state.user;
 
 export default userSlice.reducer;

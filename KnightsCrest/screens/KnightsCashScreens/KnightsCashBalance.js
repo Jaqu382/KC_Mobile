@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, Switch, FlatList, SafeAreaView,StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../slices/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser, toggleCardSuspension } from '../../slices/userSlice';
 
 export default function AccountBalanceScreen() {
   const user = useSelector(selectUser);
-
+  const dispatch = useDispatch();
   const [isCardSuspended, setIsCardSuspended] = React.useState(false);
-  const toggleSwitch = () => setIsCardSuspended((previousState) => !previousState);
+  const toggleSwitch = () => dispatch(toggleCardSuspension());
 
   const renderItem = ({ item: transaction }) => (
     <View>
@@ -30,11 +30,15 @@ export default function AccountBalanceScreen() {
       </View>
       <View>
         <Text>Transaction History:</Text>
-        <FlatList
-        data={user.kcTransactions}
-        renderItem={renderItem}
-        keyExtractor={(transaction) => transaction.id.toString()}
-        />
+        {user.kcTransactions.length === 0 ? (
+          <Text>No transactions found.</Text>
+        ) : (
+          <FlatList
+            data={user.kcTransactions}
+            renderItem={renderItem}
+            keyExtractor={(transaction) => transaction.id.toString()}
+          />
+        )}
       </View>
     </SafeAreaView>
   );

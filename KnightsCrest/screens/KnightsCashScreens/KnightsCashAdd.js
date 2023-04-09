@@ -4,8 +4,11 @@ import { Card } from '@rneui/themed';
 import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect,useState } from 'react';
 
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../slices/userSlice';
 
 export default function KnightsCashAdd({navigation, route}){
+  const user = useSelector(selectUser);
   useFocusEffect(
     React.useCallback(() => {
       // Reset the nested stack navigator when the tab is focused
@@ -86,7 +89,11 @@ export default function KnightsCashAdd({navigation, route}){
   }
 
 return (
-    <View style={styles.container}>
+  <SafeAreaView style={styles.container}>
+    {user.cardSuspended ? (
+        <Text>Your card is suspended. You cannot add funds at this time.</Text>
+      ) : (
+    <View >
       <Text style={styles.title}>Add Funds</Text>
       <Text>Select an amount:</Text>
       <View style={styles.amountButtons}>
@@ -145,7 +152,8 @@ return (
   <TouchableOpacity style={styles.submitButton} onPress={handleAddFunds}>
     <Text style={styles.submitButtonText}>Add Funds</Text>
   </TouchableOpacity>
-</View>
+</View>)}
+</SafeAreaView>
 );
     }
 
