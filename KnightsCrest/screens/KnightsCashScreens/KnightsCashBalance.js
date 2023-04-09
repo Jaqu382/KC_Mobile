@@ -1,36 +1,25 @@
-import react, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, Switch, SafeAreaView} from "react-native";
-import { Card } from "@rneui/themed";
-
-import Transaction from "../../components/Transaction";
-
-// Redux
-import { useSelector } from "react-redux";
+import React from 'react';
+import { View, Text, Switch, FlatList, SafeAreaView,StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import { selectUser } from '../../slices/userSlice';
 
-// Firebase
-
-import db from '../../firebase.js';
-
-
-export default function KnightsCashBalance({ navigation, route }) {
-
+export default function AccountBalanceScreen() {
   const user = useSelector(selectUser);
 
-  const [isCardSuspended, setIsCardSuspended] = useState(false);
+  const [isCardSuspended, setIsCardSuspended] = React.useState(false);
   const toggleSwitch = () => setIsCardSuspended((previousState) => !previousState);
 
   const renderItem = ({ item: transaction }) => (
     <View>
       <Text>{transaction.date}</Text>
-      <Text>{transaction.amount ? transaction.amount : ''}</Text>
+      <Text>{transaction.amount ? `$${transaction.amount}` : ''}</Text>
     </View>
   );
 
   return (
     <SafeAreaView>
       <View>
-        <Text>Account Balance: {user.kcBalance.balance}</Text>
+        <Text>Account Balance: ${user.kcBalance.balance}</Text>
       </View>
       <View>
         <Text>Suspend Card</Text>
@@ -42,21 +31,14 @@ export default function KnightsCashBalance({ navigation, route }) {
       <View>
         <Text>Transaction History:</Text>
         <FlatList
-          data={user.kcTransactions}
-          renderItem={renderItem}
-          keyExtractor={(transaction) => transaction.id.toString()}
+        data={user.kcTransactions}
+        renderItem={renderItem}
+        keyExtractor={(transaction) => transaction.id.toString()}
         />
       </View>
     </SafeAreaView>
   );
 }
-
-
-
-
-
-
-
 const styles = StyleSheet.create({
     container: {
       flex: 1,

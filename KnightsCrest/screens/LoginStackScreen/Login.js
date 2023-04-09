@@ -53,7 +53,7 @@ export default function Login({navigation, onLoginSuccess}) {
           ucfId: userSnapshot.child("ucf_id").val(),
           profilePicture: userSnapshot.child("profile_picture").val(),
           fineBalance: userSnapshot.child("fine_balance").val(),
-          kcBalance: { balance: userSnapshot.child("kc_balance").val() },
+          kcBalance: userSnapshot.child("kc_balance").child("balance").val(),
           libraryAccount: userSnapshot.child("library_account").val(),
           libraryLoans: userSnapshot.child("library_loans").val(),
           libraryRequests: userSnapshot.child("library_requests").val(),
