@@ -66,7 +66,7 @@ function App() {
           }}
         >
           <Stack.Screen
-            name="Home"
+            name="Knights Crest"
             component={HomeTabs}
             options={({ navigation }) => ({
               headerRight: () => (

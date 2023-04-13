@@ -1,10 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Switch, FlatList, SafeAreaView,StyleSheet, } from 'react-native';
+
+// To reset screens
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from "react";
+
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, toggleCardSuspension } from '../../slices/userSlice';
 
-export default function AccountBalanceScreen() {
+export default function AccountBalanceScreen({navigation} ) {
+    // Reset to menu whenever we go to another tab.
+    useFocusEffect(
+      useCallback(() => {
+        const unsubscribe = navigation.addListener('blur', () => {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Knights Cash Menu' }],
+          });
+        });
+    
+        return () => {
+          // Clean up the listener when the component is unmounted or the tab is blurred
+          unsubscribe();
+        };
+      }, [navigation])
+    );
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 

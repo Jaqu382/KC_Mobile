@@ -1,27 +1,34 @@
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import BalanceCard from "../../components/BalanceCard";
 
-import { useFocusEffect } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
-
+// To reset screens
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from "react";
 
 export default function LibraryFees({ navigation }) {
-  useFocusEffect(
-    React.useCallback(() => {
-      // Reset the nested stack navigator when the tab is focused
-      const unsubscribe = navigation.addListener('tabPress', (e) => {
-        e.preventDefault(); // Prevent the default behavior
-        navigation.navigate('Library Menu'); // Navigate to the first screen of the nested stack navigator
-      });
-
-      return unsubscribe;
-    }, [navigation])
-  );
+    // Reset to menu whenever we go to another tab.
+    useFocusEffect(
+      useCallback(() => {
+        const unsubscribe = navigation.addListener('blur', () => {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Library Menu' }],
+          });
+        });
+    
+        return () => {
+          // Clean up the listener when the component is unmounted or the tab is blurred
+          unsubscribe();
+        };
+      }, [navigation])
+    );
+  
   const user = useSelector(selectUser);
   const fineBalance = user.fineBalance;
   const kcBalance = user.kcBalance.balance.balance;

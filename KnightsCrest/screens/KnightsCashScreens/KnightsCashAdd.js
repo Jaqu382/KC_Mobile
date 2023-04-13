@@ -1,7 +1,11 @@
 import { View, Text, StyleSheet, Pressable, SafeAreaView, TextInput,TouchableOpacity,} from "react-native";
 
-import { useFocusEffect } from '@react-navigation/native';
+
 import React, {useState } from 'react';
+
+// To reset screens
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from "react";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, updateBalance } from '../../slices/userSlice';
@@ -10,6 +14,24 @@ import db from '../../firebase';
 import { ref, update } from 'firebase/database';
 
 export default function KnightsCashAdd({navigation, route}){
+
+  // Reset to menu whenever we go to another tab.
+  useFocusEffect(
+  useCallback(() => {
+    const unsubscribe = navigation.addListener('blur', () => {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Knights Cash Menu' }],
+      });
+    });
+
+    return () => {
+      // Clean up the listener when the component is unmounted or the tab is blurred
+      unsubscribe();
+    };
+  }, [navigation])
+);
+
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const [amount, setAmount] = useState('');
@@ -73,7 +95,7 @@ export default function KnightsCashAdd({navigation, route}){
         update(userRef, {
           kc_balance: { balance: newBalance },
           kc_transactions: [...user.kcTransactions, newTransaction],
-        });
+        }); 
     
         setSelectedAmount(5);
         alert('Funds added successfully!');
