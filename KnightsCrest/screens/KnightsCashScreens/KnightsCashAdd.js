@@ -1,25 +1,18 @@
 import { View, Text, StyleSheet, Pressable, SafeAreaView, TextInput,TouchableOpacity,} from "react-native";
-import { Card } from '@rneui/themed';
 
 import { useFocusEffect } from '@react-navigation/native';
-import React, { useEffect,useState } from 'react';
+import React, {useState } from 'react';
 
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../slices/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser, updateBalance } from '../../slices/userSlice';
+
+import db from '../../firebase';
+import { ref, update } from 'firebase/database';
 
 export default function KnightsCashAdd({navigation, route}){
   const user = useSelector(selectUser);
-  useFocusEffect(
-    React.useCallback(() => {
-      // Reset the nested stack navigator when the tab is focused
-      const unsubscribe = navigation.addListener('tabPress', (e) => {
-        e.preventDefault(); // Prevent the default behavior
-        navigation.navigate('Knights Cash Menu'); // Navigate to the first screen of the nested stack navigator
-      });
-
-      return unsubscribe;
-    }, [navigation])
-  );
+  const dispatch = useDispatch();
+  const [amount, setAmount] = useState('');
 
   const [selectedAmount, setSelectedAmount] = useState(5);
   const [email, setEmail] = useState('');
@@ -32,7 +25,7 @@ export default function KnightsCashAdd({navigation, route}){
   const [expiryDateError, setExpiryDateError] = useState('');
   const [cvvError, setCvvError] = useState('');
 
-  function handleAddFunds() {
+  const handleAddFunds = () => {
     let valid = true;
 
     if (!validateEmail(email)) {
@@ -41,32 +34,55 @@ export default function KnightsCashAdd({navigation, route}){
     } else {
       setEmailError('');
     }
-
+  
     if (!validateCardNumber(cardNumber)) {
       setCardNumberError('Invalid card number');
       valid = false;
     } else {
       setCardNumberError('');
     }
-
+  
     if (!validateExpiryDate(expiryDate)) {
       setExpiryDateError('Invalid expiry date');
       valid = false;
     } else {
       setExpiryDateError('');
     }
-
+  
     if (!validateCVV(cvv)) {
       setCvvError('Invalid CVV');
       valid = false;
     } else {
       setCvvError('');
     }
-
+  
     if (valid) {
-      // Process transaction
+      if (!user.cardSuspended) {
+        const newBalance = parseFloat(user.kcBalance.balance) + parseFloat(selectedAmount);
+        const newTransaction = {
+          amount: parseFloat(selectedAmount),
+          date: new Date().toISOString(),
+          id: user.kcTransactions.length + 1,
+        };
+    
+        // Update the user's balance and transactions in the Redux store
+        dispatch(updateBalance({ balance: newBalance, transaction: newTransaction }));
+    
+        // Update the user's balance and transactions in the Firebase Realtime Database
+        const userRef = ref(db, `users/${user.nid}`);
+        update(userRef, {
+          kc_balance: { balance: newBalance },
+          kc_transactions: [...user.kcTransactions, newTransaction],
+        });
+    
+        setSelectedAmount(5);
+        alert('Funds added successfully!');
+      } else {
+        alert('Your card is suspended. You cannot add funds.');
+      }
     }
-  }
+    }
+  
 
   function validateEmail(email) {
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;

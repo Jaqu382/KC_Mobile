@@ -25,6 +25,10 @@ export const userSlice = createSlice({
     updateUser: (state, action) => {
       return { ...state, ...action.payload };
     },
+    updateBalance: (state, action) => {
+      state.kcBalance.balance = action.payload.balance;
+      state.kcTransactions = [...state.kcTransactions, action.payload.transaction];
+    },
     clearUser: (state) => {
       return {
         nid: '',
@@ -52,7 +56,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { updateUser, clearUser,toggleCardSuspension } = userSlice.actions;
+export const { updateUser, updateBalance, clearUser,toggleCardSuspension } = userSlice.actions;
 export const selectUser = (state) => state.user;
 
 export default userSlice.reducer;
