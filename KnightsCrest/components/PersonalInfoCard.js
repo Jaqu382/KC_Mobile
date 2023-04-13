@@ -14,7 +14,7 @@ export default function PersonalInfoCard({ user }) {
         </Text>
         <Image
           style={styles.icon}
-          source={require('../assets/images/StudentIcon.png')}
+          source={require('../assets/images/studentIcon.png')}
           alt="Student icon"
         />
       </View>
@@ -30,7 +30,7 @@ export default function PersonalInfoCard({ user }) {
         <Text style={sharedStyles.bodyText}>{user.knightsCashAccount} </Text>
         <Image
           style={styles.icon}
-          source={require('../assets/images/KnightsCash.png')}
+          source={require('../assets/images/knightsCash.png')}
           alt="Knights Cash icon"
         />
       </View>

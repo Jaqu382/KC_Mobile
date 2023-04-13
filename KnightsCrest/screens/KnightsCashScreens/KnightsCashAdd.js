@@ -134,7 +134,6 @@ return (
     style={styles.input}
     value={expiryDate}
     onChangeText={setExpiryDate}
-    keyboardType="number-pad"
     maxLength={5}
   />
   {expiryDateError ? (
