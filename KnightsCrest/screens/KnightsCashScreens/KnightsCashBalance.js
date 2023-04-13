@@ -1,13 +1,16 @@
 import React from 'react';
-import { View, Text, Switch, FlatList, SafeAreaView,StyleSheet } from 'react-native';
+import { useState } from 'react';
+import { View, Text, Switch, FlatList, SafeAreaView,StyleSheet, } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser, toggleCardSuspension } from '../../slices/userSlice';
 
 export default function AccountBalanceScreen() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const [isCardSuspended, setIsCardSuspended] = React.useState(false);
-  const toggleSwitch = () => dispatch(toggleCardSuspension());
+
+  const toggleSwitch = () => {
+    dispatch(toggleCardSuspension());
+  };
 
   const renderItem = ({ item: transaction }) => (
     <View>
@@ -25,7 +28,7 @@ export default function AccountBalanceScreen() {
         <Text>Suspend Card</Text>
         <Switch
           onValueChange={toggleSwitch}
-          value={isCardSuspended}
+          value={user.cardSuspended}
         />
       </View>
       <View>
