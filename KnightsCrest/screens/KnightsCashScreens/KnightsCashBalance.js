@@ -66,10 +66,12 @@ export default function AccountBalanceScreen({navigation}) {
         </View>
         <View style = {globalStyles.card}>
           <Text style={globalStyles.text}>Suspend Card</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Switch
             onValueChange={toggleSwitch}
             value={user.cardSuspended}
           />
+          </View>
         </View>
         <View style = {globalStyles.card}>
           <Text style={globalStyles.text}>Transaction History:</Text>
