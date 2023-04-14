@@ -33,38 +33,32 @@ export default function LibraryReq({navigation, route}){
     const user = useSelector(selectUser);
     const libraryRequests = user.libraryRequests;
     
-    if (libraryRequests.length > 0){
-        return(
-            <SafeAreaView style = {styles.container}>
-                <View>
-                    <Text>Requests</Text>
-                </View>
-                <FlatList
-                    data={libraryRequests}
-                    renderItem={({ item }) => (
-                        <LibraryReqItem 
-                            requestedItem={item.title + " / " + item.author}
-                            requestDate={item.request_date}
-                            pickupLocation={item.pick_up_location}
-                        />
-                    )}
-                    keyExtractor={item => item.title}
+    return (
+        <SafeAreaView style={styles.container}>
+          <View>
+            <Text>Requests</Text>
+          </View>
+          {libraryRequests && !libraryRequests[0].empty ? (
+            <FlatList
+              data={libraryRequests}
+              renderItem={({ item }) => (
+                <LibraryReqItem
+                  requestedItem={item.title + " / " + item.author}
+                  requestDate={item.request_date}
+                  pickupLocation={item.pick_up_location}
                 />
-            </SafeAreaView>
-        );
-    }
-    else
-    {
-        return(
-            <SafeAreaView style = {styles.container}>
-                <View>
-                    <Card containerStyle = {styles.reqItem}>
-                        <Text>No requests at this time.</Text>
-                    </Card>
-                </View>
-            </SafeAreaView>
-        );
-    }
+              )}
+              keyExtractor={item => item.title}
+            />
+          ) : (
+            <View>
+              <Card containerStyle={styles.reqItem}>
+                <Text>No requests at this time.</Text>
+              </Card>
+            </View>
+          )}
+        </SafeAreaView>
+      );
 }
 
 const styles = StyleSheet.create({

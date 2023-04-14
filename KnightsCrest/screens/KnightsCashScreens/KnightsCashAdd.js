@@ -84,26 +84,37 @@ export default function KnightsCashAdd({navigation, route}){
         const newTransaction = {
           amount: parseFloat(selectedAmount),
           date: new Date().toISOString(),
-          id: user.kcTransactions.length + 1,
+          id: user.kcTransactions[0].empty ? 1 : user.kcTransactions.length + 1,
         };
-    
+  
         // Update the user's balance and transactions in the Redux store
         dispatch(updateBalance({ balance: newBalance, transaction: newTransaction }));
-    
+  
+        let updatedTransactions;
+  
+        // Check if the first transaction has the empty property
+        if (user.kcTransactions[0].empty) {
+          // Replace the first object with the new transaction
+          updatedTransactions = [newTransaction];
+        } else {
+          // Add the new transaction to the existing array
+          updatedTransactions = [...user.kcTransactions, newTransaction];
+        }
+  
         // Update the user's balance and transactions in the Firebase Realtime Database
         const userRef = ref(db, `users/${user.nid}`);
         update(userRef, {
           kc_balance: { balance: newBalance },
-          kc_transactions: [...user.kcTransactions, newTransaction],
-        }); 
-    
+          kc_transactions: updatedTransactions,
+        });
+  
         setSelectedAmount(5);
         alert('Funds added successfully!');
       } else {
         alert('Your card is suspended. You cannot add funds.');
       }
     }
-    }
+  };
   
 
   function validateEmail(email) {

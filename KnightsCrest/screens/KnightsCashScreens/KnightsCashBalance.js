@@ -1,7 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, Switch, FlatList, SafeAreaView,StyleSheet, } from 'react-native';
-
 // To reset screens
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from "react";
@@ -29,6 +28,16 @@ export default function AccountBalanceScreen({navigation} ) {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    if (user.kcTransactions.length > 0 && user.kcTransactions[0].empty) {
+      setTransactions(user.kcTransactions.slice(1));
+    } else {
+      setTransactions(user.kcTransactions);
+    }
+  }, [user.kcTransactions]);
+
   const toggleSwitch = () => {
     dispatch(toggleCardSuspension());
   };
@@ -54,11 +63,11 @@ export default function AccountBalanceScreen({navigation} ) {
       </View>
       <View>
         <Text>Transaction History:</Text>
-        {user.kcTransactions.length === 0 ? (
+        {user.kcTransactions[0].empty ? (
           <Text>No transactions found.</Text>
         ) : (
           <FlatList
-            data={user.kcTransactions}
+            data={transactions}
             renderItem={renderItem}
             keyExtractor={(transaction) => transaction.id.toString()}
           />

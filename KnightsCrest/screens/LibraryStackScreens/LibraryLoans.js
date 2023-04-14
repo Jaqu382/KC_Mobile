@@ -49,13 +49,13 @@ export default function LibraryLoans({navigation}) {
           <Text>Loans</Text>
         </View>
         <View style={styles.loansContainer}>
-        {loans.length > 0 ? (
-          <FlatList
-          data={loans}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.item_id.toString()}
-          />
-  ) : (
+        {!loans[0].empty ? (
+            <FlatList
+              data={loans}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.item_id.toString()}
+            />
+          )  : (
     <Text>No loans</Text>
   )}
 </View></View>

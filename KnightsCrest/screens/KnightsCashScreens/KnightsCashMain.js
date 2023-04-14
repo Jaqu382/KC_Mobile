@@ -1,6 +1,8 @@
 import { View, Text , StyleSheet, Pressable, SafeAreaView } from "react-native";
 import React, { useEffect } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
+import { Image } from 'react-native';
+
 
 export default function KnightsCashMain({navigation}){
     useFocusEffect(
@@ -17,7 +19,8 @@ export default function KnightsCashMain({navigation}){
     
     return(
     <SafeAreaView style = {styles.container}>
-        <View>
+      <Image source={require('../../assets/images/knightsCashLogo.png')} style={{ width: 350, height: 130 }} />
+        <View>    
             <View style = {{paddingTop: 10}}>
             <Pressable style = {styles.button} onPress = {()=> navigation.navigate("Balance")}>
                 <Text>Check Balance</Text>
