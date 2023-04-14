@@ -4,7 +4,7 @@ import { Image } from 'react-native';
 export default function LibraryMain({navigation, route}){
     return(
     <SafeAreaView style = {styles.container}>
-        <Image source={require('../../assets/images/jchLogo.png')} style={{ width: 350, height: 100 }} />
+        <Image source={require('../../assets/images/ucfLibrariesLogo.png')} style={{ width: 350, height: 100 }} />
         <View>
             <View style = {{paddingTop: 10}}>
             <Pressable style = {styles.button} onPress = {()=> navigation.navigate("Loans")}>
