@@ -30,12 +30,12 @@ export default function KnightsCashMain({navigation}){
       <View>    
         <View style={{paddingTop: 10}}>
           <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Balance")}>
-            <Text>Check Balance</Text>
+            <Text style = {globalStyles.text}>Check Balance</Text>
           </Pressable>
         </View>
         <View style={{paddingTop: 10}}>
           <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Add")}>
-            <Text>Add funds</Text>
+            <Text style = {globalStyles.text}>Add funds</Text>
           </Pressable>
         </View>
       </View>

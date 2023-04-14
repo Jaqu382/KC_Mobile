@@ -7,7 +7,7 @@ import SupportLink from "../../components/SupportLink";
 
 const FontSizeButton = ({ size, onPress }) => (
   <TouchableOpacity onPress={() => onPress(size)} style={styles.fontSizeButton}>
-    <Text style={{ fontSize: size }}>{size}</Text>
+    <Text style={{ fontSize: size }}>Aa</Text>
   </TouchableOpacity>
 );
 
@@ -31,7 +31,7 @@ const SettingsScreen = () => {
         Font Size Settings
       </Text>
       <View style={styles.fontSizeContainer}>
-        <FontSizeButton size={14} onPress={handleFontSizeChange} />
+        <FontSizeButton size={16} onPress={handleFontSizeChange} />
         <FontSizeButton size={18} onPress={handleFontSizeChange} />
         <FontSizeButton size={22} onPress={handleFontSizeChange} />
       </View>

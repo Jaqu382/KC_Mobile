@@ -6,6 +6,7 @@ export const createGlobalStyles = (theme) => {
 
   const backgroundColor = isDarkModeEnabled ? '#333' : '#fff';
   const internalBackgroundColor = isDarkModeEnabled ? '#DDD': '#fff';
+  const cardBackgroundColor = isDarkModeEnabled ? '#DDD' : '#FDF1BC';
   const textColor = isDarkModeEnabled ? '#fff' : '#333';
 
   return StyleSheet.create({
@@ -17,7 +18,6 @@ export const createGlobalStyles = (theme) => {
     },
     text: {
       fontSize: appFontSize,
-      color: textColor,
     },
     button: {
       width: 250,
@@ -32,6 +32,13 @@ export const createGlobalStyles = (theme) => {
       elevation: 3,
       backgroundColor: internalBackgroundColor,
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
+    },
+    card: {
+      padding: 15,
+      backgroundColor: cardBackgroundColor,
+      borderRadius: 5,
+      marginBottom: 10,
+      boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
     },
   });
 };

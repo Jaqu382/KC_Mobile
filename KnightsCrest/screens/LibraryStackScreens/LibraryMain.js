@@ -1,47 +1,34 @@
-import { View, Text , StyleSheet, Pressable, SafeAreaView } from "react-native";
+import { View, Text, Pressable, SafeAreaView } from "react-native";
 import { Image } from 'react-native';
 
-export default function LibraryMain({navigation, route}){
-    return(
-    <SafeAreaView style = {styles.container}>
-        <Image source={require('../../assets/images/ucfLibrariesLogo.png')} style={{ width: 350, height: 100 }} />
-        <View>
-            <View style = {{paddingTop: 10}}>
-            <Pressable style = {styles.button} onPress = {()=> navigation.navigate("Loans")}>
-                <Text>Loans</Text>
-            </Pressable>
+// Theme and styles
+import { useTheme } from '../../ThemeContext';
+import { createGlobalStyles } from '../../styles/globalStyles';
+
+export default function LibraryMain({navigation, route}) {
+    const theme = useTheme();
+    const globalStyles = createGlobalStyles(theme);
+
+    return (
+        <SafeAreaView style={globalStyles.container}>
+            <Image source={require('../../assets/images/ucfLibrariesLogo.png')} style={{ width: 350, height: 100 }} />
+            <View>
+                <View style={{ paddingTop: 10 }}>
+                    <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Loans")}>
+                        <Text style={globalStyles.text}>Loans</Text>
+                    </Pressable>
+                </View>
+                <View style={{ paddingTop: 10 }}>
+                    <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Requests")}>
+                        <Text style={globalStyles.text}>Requests</Text>
+                    </Pressable>
+                </View>
+                <View style={{ paddingTop: 10 }}>
+                    <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Fees")}>
+                        <Text style={globalStyles.text}>Fines/Fees</Text>
+                    </Pressable>
+                </View>
             </View>
-            <View style = {{paddingTop: 10}}>
-            <Pressable style = {styles.button} onPress = {()=> navigation.navigate("Requests")}>
-                <Text>Requests</Text>
-            </Pressable>
-            </View>
-            <View style = {{paddingTop: 10}}>
-            <Pressable style = {styles.button} onPress = {()=> navigation.navigate("Fees")}>
-                <Text>Fines/Fees</Text>
-            </Pressable>
-            </View>
-        </View>
-    </SafeAreaView>)
+        </SafeAreaView>
+    )
 }
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    button: {
-        width: 240,
-        padding: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 1,
-        borderLeftWidth: 5,
-        borderStartColor: "#ffc904",
-        borderRadius: 2,
-        borderColor: "#ffc904",
-        elevation: 3,
-        backgroundColor: 'white',
-        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
-    }})
