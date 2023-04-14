@@ -1,15 +1,14 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import sharedStyles from '../useDynamicStyle';
 
 export default function PersonalInfoCard({ user }) {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={[sharedStyles.bodyText, styles.bold]}>{user.caste}</Text>
+        <Text style={[styles.bold]}>{user.caste}</Text>
       </View>
       <View style={styles.row}>
-        <Text style={sharedStyles.bodyText}>
+        <Text>
           {user.firstName} {user.lastName}{' '}
         </Text>
         <Image
@@ -19,7 +18,7 @@ export default function PersonalInfoCard({ user }) {
         />
       </View>
       <View style={styles.row}>
-        <Text style={sharedStyles.bodyText}>{user.libraryAccount} </Text>
+        <Text >{user.libraryAccount} </Text>
         <Image
           style={styles.icon}
           source={require('../assets/images/libraryCard.png')}
@@ -27,7 +26,7 @@ export default function PersonalInfoCard({ user }) {
         />
       </View>
       <View style={styles.row}>
-        <Text style={sharedStyles.bodyText}>{user.knightsCashAccount} </Text>
+        <Text>{user.knightsCashAccount} </Text>
         <Image
           style={styles.icon}
           source={require('../assets/images/knightsCashIcon.png')}

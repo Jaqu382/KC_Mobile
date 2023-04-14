@@ -4,7 +4,6 @@ import { Card } from "@rneui/base";
 import QR from "./QR";
 
 
-import sharedStyles from "../useDynamicStyle";
 export default function IDback(props){
     const {user} = props;
     return(
@@ -17,7 +16,7 @@ export default function IDback(props){
                     borderColor: "black",
                     }}>
                     <View>
-                        <Text style = {[sharedStyles.bodyText, {fontWeight:"bold"}]}>QR CODE</Text>
+                        <Text style = {[{fontWeight:"bold"}]}>QR CODE</Text>
                     </View>
                 
                 <View style = {{backgroundColor:  "#000", padding: 5, borderRadius: 5}}>  

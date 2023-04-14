@@ -12,8 +12,14 @@ import YellowButton from '../../components/YellowButton';
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
+// Theme and styles
+import { useTheme } from '../../ThemeContext';
+import { createGlobalStyles } from '../../styles/globalStyles';
 
 export default function HomeScreen({navigation, route}) {
+
+  const theme = useTheme();
+  const globalStyles = createGlobalStyles(theme);
 
   // Grab user from redux
   const user = useSelector(selectUser);
@@ -37,7 +43,7 @@ export default function HomeScreen({navigation, route}) {
   })
     
     return (
-      <SafeAreaView style = {styles.container}>
+      <SafeAreaView style={globalStyles.container}>
         <View>
             <Animated.View style = {[{transform: [{rotateY: interpolateFront}]}, styles.hidden]}>
               <IDfront

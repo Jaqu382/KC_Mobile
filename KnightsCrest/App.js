@@ -20,6 +20,9 @@ import SettingsScreen from './screens/SettingsScreens/SettingsScreen';
 import SettingsButton from './components/SettingsButton';
 import LogoutButton from './components/LogoutButton';
 
+// Theme
+import { AppThemeProvider } from './ThemeContext';
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
@@ -58,6 +61,7 @@ function App() {
 
   return(
     <Provider store={store}>
+     <AppThemeProvider>
     <NavigationContainer>
       {isLoggedIn ? (
         <Stack.Navigator
@@ -87,6 +91,7 @@ function App() {
           </Stack.Navigator>
         )}
     </NavigationContainer>
+    </AppThemeProvider>
     </Provider>
   )
 }
