@@ -59,7 +59,7 @@ export default function AccountBalanceScreen({navigation}) {
     <SafeAreaView style = {globalStyles. container}>
       <View>
         <View>
-          <Text style={globalStyles.text}>Welcome {user.firstName} {user.lastName}</Text>
+          <Text style={globalStyles.titleText}>Welcome {user.firstName} {user.lastName}</Text>
         </View>
         <View style = {globalStyles.card}>
           <Text style={globalStyles.text}>Account Balance: ${user.kcBalance.balance}</Text>

@@ -7,10 +7,15 @@ import { Image } from 'react-native';
 import { useTheme } from '../../ThemeContext';
 import { createGlobalStyles } from '../../styles/globalStyles';
 
+// Darkmode logo
+import knightsCashLogoDark from '../../assets/images/knightsCashLogoWhite.png';
+
+
 export default function KnightsCashMain({navigation}){
 
   const theme = useTheme();
   const globalStyles = createGlobalStyles(theme);
+  const { isDarkModeEnabled } = useTheme();
 
   useFocusEffect(
     React.useCallback(() => {
@@ -24,9 +29,12 @@ export default function KnightsCashMain({navigation}){
     }, [navigation])
   );
 
-  return(
+  return( 
     <SafeAreaView style={globalStyles.container}>
-      <Image source={require('../../assets/images/knightsCashLogo.png')} style={{ width: 350, height: 130 }} />
+      <Image source={isDarkModeEnabled ? knightsCashLogoDark: require('../../assets/images/knightsCashLogo.png')
+  }
+  style={{ width: 350, height: 130 }}
+/>
       <View>    
         <View style={{paddingTop: 10}}>
           <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Balance")}>

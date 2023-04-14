@@ -5,13 +5,21 @@ import { Image } from 'react-native';
 import { useTheme } from '../../ThemeContext';
 import { createGlobalStyles } from '../../styles/globalStyles';
 
+// Darkmode
+import libraryLogoDark from '../../assets/images/ucfLibrariesLogoWhite.png';
+
 export default function LibraryMain({navigation, route}) {
     const theme = useTheme();
+    const { isDarkModeEnabled } = useTheme();
     const globalStyles = createGlobalStyles(theme);
 
     return (
         <SafeAreaView style={globalStyles.container}>
-            <Image source={require('../../assets/images/ucfLibrariesLogo.png')} style={{ width: 350, height: 100 }} />
+        <Image
+            source={isDarkModeEnabled ? 
+            libraryLogoDark: require('../../assets/images/ucfLibrariesLogo.png')}
+            style={{ width: 350, height: 105 }}
+        />
             <View>
                 <View style={{ paddingTop: 10 }}>
                     <Pressable style={globalStyles.button} onPress={() => navigation.navigate("Loans")}>
