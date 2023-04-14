@@ -21,7 +21,6 @@ export default function LibraryFees({ navigation }) {
             routes: [{ name: 'Library Menu' }],
           });
         });
-    
         return () => {
           // Clean up the listener when the component is unmounted or the tab is blurred
           unsubscribe();

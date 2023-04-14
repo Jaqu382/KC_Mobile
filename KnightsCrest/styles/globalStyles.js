@@ -79,7 +79,7 @@ export const createGlobalStyles = (theme) => {
     },
 
     amountButton: {
-      width: 60,
+      width: 80,
       padding: 10,
       elevation: 3,
       borderWidth: 1,
@@ -90,7 +90,7 @@ export const createGlobalStyles = (theme) => {
     },
 
     amountButtonSelected: {
-      width: 60,
+      width: 80,
       padding: 10,
       elevation: 3,
       borderWidth: 1,
