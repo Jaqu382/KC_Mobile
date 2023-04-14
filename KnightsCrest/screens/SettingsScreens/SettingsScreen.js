@@ -54,26 +54,30 @@ const SettingsScreen = () => {
       </Text>
       <View style={styles.divider} />
       <View>
+        <View style = {{paddingTop: 10}}>
         <SupportLink
           heading="NID password Self-Service Reset Tool"
           supportText="Reset your NID password"
           link="https://mynid.ucf.edu/pages/NidCheck.aspx"
-        />
+        /></View>
+        <View style = {{paddingTop: 10}}>
         <SupportLink
           heading="Support Center"
           supportText="Search knowledge base and submit a ticket."
           link="https://ucf.service-now.com/ucfit"
-        />
+        /></View>
+        <View style = {{paddingTop: 10}}>
         <SupportLink
           heading="Call the support center"
           supportText="407-823-5117"
           link="tel:${407-823-5117}"
-        />
+        /></View>
+        <View style = {{paddingTop: 10}}>
         <SupportLink
           heading="Email Support Center"
           supportText="itsupport@ucf.edu"
           link="mailto:itsupport@ucf.edu"
-        />
+        /></View>
       </View>
       <View style={styles.divider} />
       <View>
@@ -97,7 +101,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     },
-    fontSizeButton: {
+  fontSizeButton: {
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderWidth: 1,
@@ -105,7 +109,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: 5,
     },
-    divider: {
+  divider: {
     borderBottomColor: '#707070',
     borderBottomWidth: 1,
     paddingTop: 10,
