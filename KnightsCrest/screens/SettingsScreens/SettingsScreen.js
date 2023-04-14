@@ -83,6 +83,7 @@ const SettingsScreen = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     },
-  fontSizeButton: {
+    fontSizeButton: {
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderWidth: 1,
@@ -104,11 +105,11 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     marginHorizontal: 5,
     },
-  divider: {
+    divider: {
     borderBottomColor: '#707070',
     borderBottomWidth: 1,
     paddingTop: 10,
     },
-  });
+    });
     
     export default SettingsScreen;
