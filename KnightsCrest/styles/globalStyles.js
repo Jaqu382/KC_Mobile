@@ -34,7 +34,7 @@ export const createGlobalStyles = (theme) => {
       fontWeight: 'bold',
     },
     button: {
-      width: 250,
+      width: appFontSize * 15,
       padding: 10,
       alignItems: 'center',
       justifyContent: 'center',
