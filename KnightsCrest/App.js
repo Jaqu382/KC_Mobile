@@ -22,7 +22,7 @@ import LogoutButton from './components/LogoutButton';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  
   useEffect(() => {
     checkLoginStatus();
   }, []);
