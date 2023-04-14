@@ -5,9 +5,10 @@ export const createGlobalStyles = (theme) => {
   const { appFontSize, isDarkModeEnabled } = theme;
 
   const backgroundColor = isDarkModeEnabled ? '#333' : '#fff';
-  const internalBackgroundColor = isDarkModeEnabled ? '#DDD': '#fff';
   const cardBackgroundColor = isDarkModeEnabled ? '#DDD' : '#FDF1BC';
   const titleTextColor = isDarkModeEnabled ? '#fff' : '#333';
+  const buttonColor = isDarkModeEnabled ? '#fff' : '#333';
+  const textColor = isDarkModeEnabled ? '#fff' : '#333';
 
   return StyleSheet.create({
     container: {
@@ -20,11 +21,17 @@ export const createGlobalStyles = (theme) => {
       fontSize: appFontSize,
       color: '#333'
     },
+    suspendedText: {
+      fontSize: appFontSize + 2,
+      color: textColor,
+      textAlign: 'center',
+      marginBottom: 20,
+    },
     titleText:{
       fontSize: appFontSize + 4,
       color: titleTextColor,
-      marginBottom: 10,
-      fontWeight: 'bold'
+      marginBottom: 20,
+      fontWeight: 'bold',
     },
     button: {
       width: 250,
@@ -40,12 +47,86 @@ export const createGlobalStyles = (theme) => {
       backgroundColor: "#fff",
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
     },
+    alternateButton: {
+      padding: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 10,
+      elevation: 3,
+      backgroundColor: "#ffc904",
+      boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" 
+    },
     card: {
       padding: 15,
       backgroundColor: cardBackgroundColor,
       borderRadius: 5,
       marginBottom: 10,
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    },
+    addForm: {
+      padding: 15,
+      backgroundColor: cardBackgroundColor,
+      borderRadius: 5,
+      marginBottom: 10,
+      width: 320,
+      boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    },
+
+    amountButtons: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: 20,
+    },
+
+    amountButton: {
+      width: 60,
+      padding: 10,
+      elevation: 3,
+      borderWidth: 1,
+      borderColor: buttonColor,
+      backgroundColor: backgroundColor,
+      borderRadius: 5,
+      alignItems: 'center',
+    },
+
+    amountButtonSelected: {
+      width: 60,
+      padding: 10,
+      elevation: 3,
+      borderWidth: 1,
+      borderColor: '#33b249',
+      backgroundColor: '#33b249',
+      borderRadius: 5,
+      alignItems: 'center',
+    },
+    amountButtonText: {
+      fontSize: appFontSize,
+      color: buttonColor,
+    },
+    fieldInput: {
+      padding: 10,
+      borderWidth: 1,
+      borderColor: '#333',
+      elevation: 3,
+      borderRadius: 5,
+      backgroundColor: '#fff',
+      fontSize: appFontSize,
+      boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+    },
+    fieldTitle: {
+      fontWeight: "bold",
+      fontSize: appFontSize,
+    },
+    fieldInputFocus: {
+      padding: 10,
+      borderRadius: 5,
+      backgroundColor: '#fff',
+      fontSize: 15,
+      color: "#000",
+      boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
+    },
+    warningText: {
+      color: "red"
     },
   });
 };
