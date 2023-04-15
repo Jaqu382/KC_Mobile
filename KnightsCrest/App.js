@@ -73,7 +73,6 @@ function App() {
       'GothamBold': require('./assets/fonts/GothamBold.ttf'),
       'GothamBook': require('./assets/fonts/GothamBook.ttf'),
       'GothamMedium': require('./assets/fonts/GothamMedium.ttf'),
-      'Lora-Regular': require('./assets/fonts/Lora-Regular.ttf'),
       // Add more fonts if needed
     });
     setFontsLoaded(true);
@@ -93,7 +92,7 @@ function App() {
             <Stack.Navigator
               screenOptions={{
                 headerStyle: { backgroundColor: '#FFC904' },
-                headerTitleStyle: {fontFamily: 'Lora-Regular', fontWeight: }
+                headerTitleStyle: {fontFamily: 'GothamBold',  }
               }}
               
             >
