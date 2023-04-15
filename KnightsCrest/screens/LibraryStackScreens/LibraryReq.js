@@ -44,7 +44,7 @@ export default function LibraryReq({ navigation, route }) {
         <Text style={globalStyles.titleText}>Requests</Text>
       </View>
       {libraryRequests && !libraryRequests[0].empty ? (
-        <View style = {{maxHeight:400}}>
+        <View style={{ maxHeight: libraryRequests.length * 200 }}>
         <FlatList
           data={libraryRequests}
           renderItem={({ item }) => (
@@ -52,6 +52,7 @@ export default function LibraryReq({ navigation, route }) {
               requestedItem={item.title + " / " + item.author}
               requestDate={item.request_date}
               pickupLocation={item.pick_up_location}
+              style={{ maxHeight: libraryRequests.length * 200 }}
             />
           )}
           keyExtractor={item => item.title}

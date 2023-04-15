@@ -78,14 +78,13 @@ export default function AccountBalanceScreen({navigation}) {
           {user.kcTransactions[0].empty ? (
             <Text>No transactions found.</Text>
           ) : (
-            <View style={{ maxHeight: transactions.length * 20 }}>
             <FlatList
                data={transactions.slice(0, 10)} 
               renderItem={renderItem}
               keyExtractor={(transaction) => transaction.id.toString()
               }
-            />
-            </View>
+              style={{ maxHeight: transactions.length * 20 }}
+            />          
           )}
         </View>
       </View>

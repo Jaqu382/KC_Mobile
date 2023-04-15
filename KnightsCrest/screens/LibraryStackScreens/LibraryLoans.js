@@ -57,13 +57,14 @@ export default function LibraryLoans({navigation}) {
           <View>
             <Text style={globalStyles.titleText}>Loans</Text>
           </View>
-          <View>
+          <View style = {{maxHeight: loans.length * 200}}>
             {!loans[0].empty ? (
-              <View style = {{maxHeight:400}}>
+              <View>
               <FlatList
                 data={loans}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.item_id.toString()}
+                style = {{maxHeight: loans.length * 200}}
               />
               </View>
             ) : (

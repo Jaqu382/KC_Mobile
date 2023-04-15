@@ -93,7 +93,9 @@ function App() {
             <Stack.Navigator
               screenOptions={{
                 headerStyle: { backgroundColor: '#FFC904' },
+                headerTitleStyle: {fontFamily: 'Lora-Regular', fontWeight: }
               }}
+              
             >
               <Stack.Screen
                 name="Knights Crest"
