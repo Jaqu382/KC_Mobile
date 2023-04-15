@@ -3,12 +3,12 @@ import { StyleSheet } from 'react-native';
 
 export const createGlobalStyles = (theme) => {
   const { appFontSize, isDarkModeEnabled } = theme;
-
   const backgroundColor = isDarkModeEnabled ? '#333' : '#fff';
   const cardBackgroundColor = isDarkModeEnabled ? '#fff' : '#FDF1BC';
   const titleTextColor = isDarkModeEnabled ? '#fff' : '#333';
   const buttonColor = isDarkModeEnabled ? '#fff' : '#333';
   const textColor = isDarkModeEnabled ? '#fff' : '#333';
+  const dividerColor = isDarkModeEnabled ? '#fff': '#333'
 
   return StyleSheet.create({
     container: {
@@ -21,6 +21,10 @@ export const createGlobalStyles = (theme) => {
       fontSize: appFontSize,
       fontFamily: 'GothamMedium',
       color: '#333'
+    },
+    smallText: {
+      color: textColor,
+      fontSize: appFontSize - 2
     },
     bodyText: {
       fontSize: appFontSize,
@@ -143,6 +147,18 @@ export const createGlobalStyles = (theme) => {
     },
     warningText: {
       color: "red"
+    },
+    subheadingText: {
+      fontSize: 18,
+      fontWeight: "bold",
+      color: textColor,
+      marginBottom: 5
+    },
+    divider: {
+      height: 2,
+      width: '90%',
+      backgroundColor: dividerColor,
+      marginBottom: 10
     },
   });
 };

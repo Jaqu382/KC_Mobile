@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  fontSize: 22,
+  fontSize: 20,
 };
 
 export const fontSizeSlice = createSlice({
