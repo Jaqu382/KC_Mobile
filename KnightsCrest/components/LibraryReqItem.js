@@ -2,26 +2,32 @@ import { Card } from "@rneui/themed";
 import { View, Text, StyleSheet } from "react-native";
 import format from "date-fns/format";
 
+// Theme
+import { useTheme } from '../ThemeContext';
+import { createGlobalStyles } from '../styles/globalStyles';
 
 
 export default function LibraryReqItem(props){
 
     const {requestedItem, requestDate, pickupLocation} = props
+    
+    const theme = useTheme();
+    const globalStyles = createGlobalStyles(theme);
 
     let myDate = new Date(requestDate)  ;
     let formatDate = format(myDate, 'MM/dd/yyyy')
-    
+
     return(
         <View>
-            <Card containerStyle = {styles.reqItem}>
+            <Card containerStyle = {globalStyles.card}>
                 <View>
-                    <Text>{requestedItem}</Text>
+                    <Text style = {globalStyles.text}>{requestedItem}</Text>
                 </View>
                 <View>
-                    <Text>Requested on: {formatDate}</Text>
+                    <Text style = {globalStyles.bodyText}>Requested on: {formatDate}</Text>
                 </View>
                 <View>
-                    <Text>
+                    <Text style = {globalStyles.bodyText}>
                         Pickup at: {pickupLocation}
                     </Text>
                         

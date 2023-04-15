@@ -8,72 +8,62 @@ import { useCallback } from "react";
 
 import React, { useEffect } from 'react';
 
-
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
+// Theme
+import { useTheme } from '../../ThemeContext';
+import { createGlobalStyles } from '../../styles/globalStyles';
 
-export default function LibraryReq({navigation, route}){
-    useFocusEffect(
-        useCallback(() => {
-          const unsubscribe = navigation.addListener('blur', () => {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'Library Menu' }],
-            });
-          });
+export default function LibraryReq({ navigation, route }) {
+  useFocusEffect(
+    useCallback(() => {
+      const unsubscribe = navigation.addListener('blur', () => {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Library Menu' }],
+        });
+      });
+
+      return () => {
+        unsubscribe();
+      };
+    }, [navigation])
+  );
+  
+  const user = useSelector(selectUser);
+  const libraryRequests = user.libraryRequests;
+  const theme = useTheme();
+  const globalStyles = createGlobalStyles(theme);
+
+  return (
+    <SafeAreaView style={globalStyles.container}>
       
-          return () => {
-            // Clean up the listener when the component is unmounted or the tab is blurred
-            unsubscribe();
-          };
-        }, [navigation])
-      );
-    const user = useSelector(selectUser);
-    const libraryRequests = user.libraryRequests;
-    
-    return (
-        <SafeAreaView style={styles.container}>
-          <View>
-            <Text>Requests</Text>
-          </View>
-          {libraryRequests && !libraryRequests[0].empty ? (
-            <FlatList
-              data={libraryRequests}
-              renderItem={({ item }) => (
-                <LibraryReqItem
-                  requestedItem={item.title + " / " + item.author}
-                  requestDate={item.request_date}
-                  pickupLocation={item.pick_up_location}
-                />
-              )}
-              keyExtractor={item => item.title}
+      <View style = {{marginTop: 20}}>
+        <Text style={globalStyles.titleText}>Requests</Text>
+      </View>
+      {libraryRequests && !libraryRequests[0].empty ? (
+        <View style = {{maxHeight:400}}>
+        <FlatList
+          data={libraryRequests}
+          renderItem={({ item }) => (
+            <LibraryReqItem
+              requestedItem={item.title + " / " + item.author}
+              requestDate={item.request_date}
+              pickupLocation={item.pick_up_location}
             />
-          ) : (
-            <View>
-              <Card containerStyle={styles.reqItem}>
-                <Text>No requests at this time.</Text>
-              </Card>
-            </View>
           )}
-        </SafeAreaView>
-      );
+          keyExtractor={item => item.title}
+        /></View>
+      ) : (
+        <View>
+          <Card containerStyle={globalStyles.card}>
+            <Text style = {globalStyles.text}>No requests at this time.</Text>
+          </Card>
+        </View>
+      )}
+    
+    </SafeAreaView>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        paddingTop: 10,
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-      },
-    reqItem: {
-        width: 300,
-        height:50,
-        backgroundColor: "#FDF1BC",
-        shadowColor: "#000000",
-        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
-    }
-});

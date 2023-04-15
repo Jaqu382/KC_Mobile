@@ -1,36 +1,20 @@
-import { View, Text, StyleSheet } from "react-native"
-import { Card } from '@rneui/themed';
-export default function BalanceCard(props){
-    const {hasBalance, balance} = props;
-    
-    if(hasBalance){
-    return(
-        <Card containerStyle = {styles.balanceCard}>
-        <View style = {{flexDirection: "row", justifyContent: "space-between"}}>
-            <Text>Balance:</Text>
-            <Text>
-                {balance.toFixed(2)}
-            </Text>
-        </View>
-        </Card>
-  )}
-  else
-  {
-    return(
-        <Card containerStyle = {styles.balanceCard}>
-        <View style = {{flexDirection: "row", justifyContent: "space-between"}}>
-            <Text>Balance:</Text>
-            <Text>No balance at this time.</Text>
-        </View>
-        </Card>
-    )
-  }
-}
+import { View, Text } from "react-native";
+import { Card } from "@rneui/themed";
+import { createGlobalStyles } from '../styles/globalStyles';
 
-const styles = StyleSheet.create({
-    balanceCard: {
-        width: 200,
-        height: 50,
-        backgroundColor: "#FDF1BC",
-        boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
-      },})
+export default function BalanceCard(props) {
+  const { hasBalance, balance, theme } = props;
+
+  const globalStyles = createGlobalStyles(theme);
+
+  return (
+    <Card containerStyle={globalStyles.card}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <Text style={globalStyles.text}>Balance: </Text>
+        <Text style={globalStyles.text}>
+          {hasBalance ? `$${balance.toFixed(2)}`  : "No balance at this time."}
+        </Text>
+      </View>
+    </Card>
+  );
+}

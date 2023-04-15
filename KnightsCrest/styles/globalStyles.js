@@ -5,7 +5,7 @@ export const createGlobalStyles = (theme) => {
   const { appFontSize, isDarkModeEnabled } = theme;
 
   const backgroundColor = isDarkModeEnabled ? '#333' : '#fff';
-  const cardBackgroundColor = isDarkModeEnabled ? '#DDD' : '#FDF1BC';
+  const cardBackgroundColor = isDarkModeEnabled ? '#fff' : '#FDF1BC';
   const titleTextColor = isDarkModeEnabled ? '#fff' : '#333';
   const buttonColor = isDarkModeEnabled ? '#fff' : '#333';
   const textColor = isDarkModeEnabled ? '#fff' : '#333';
@@ -19,19 +19,26 @@ export const createGlobalStyles = (theme) => {
     },
     text: {
       fontSize: appFontSize,
+      fontFamily: 'GothamMedium',
+      color: '#333'
+    },
+    bodyText: {
+      fontSize: appFontSize,
+      fontFamily: 'GothamBook',
       color: '#333'
     },
     suspendedText: {
       fontSize: appFontSize + 2,
+      fontFamily: 'GothamBold',
       color: textColor,
       textAlign: 'center',
       marginBottom: 20,
     },
     titleText:{
       fontSize: appFontSize + 4,
+      fontFamily: 'GothamBold',
       color: titleTextColor,
       marginBottom: 20,
-      fontWeight: 'bold',
     },
     button: {
       width: appFontSize * 15,
@@ -59,9 +66,18 @@ export const createGlobalStyles = (theme) => {
     card: {
       padding: 15,
       backgroundColor: cardBackgroundColor,
+      fontFamily: "GothamBook",
       borderRadius: 5,
       marginBottom: 10,
       boxShadow: "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    },
+    reqItem: {
+      width: 300,
+      height: 50,
+      backgroundColor: "#FDF1BC",
+      shadowColor: "#000000",
+      boxShadow:
+        "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
     },
     addForm: {
       padding: 15,
@@ -114,7 +130,7 @@ export const createGlobalStyles = (theme) => {
       boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
     },
     fieldTitle: {
-      fontWeight: "bold",
+      fontFamily: 'GothamBold',
       fontSize: appFontSize,
     },
     fieldInputFocus: {

@@ -2,9 +2,17 @@ import { Card } from "@rneui/themed";
 import { View, Text, StyleSheet } from "react-native";
 import { format } from "date-fns";
 
+// Theme
+import { useTheme } from '../ThemeContext';
+import { createGlobalStyles } from '../styles/globalStyles';
+
 
 export default function LibraryItem(props){
     const {itemID, item, dueDate, pickupLocation} = props;
+
+    const theme = useTheme();
+    const globalStyles = createGlobalStyles(theme);
+
 
     // Format date
     let myDate = new Date(dueDate);
@@ -12,18 +20,18 @@ export default function LibraryItem(props){
 
     return(
         <View>
-            <Card containerStyle = {styles.loanItemCard}>
+            <Card containerStyle = {globalStyles.card}>
                 <View>
-                    <Text>[{itemID}]</Text>
+                    <Text style = {globalStyles.text}>[{itemID}]</Text>
                 </View>
                 <View>
-                    <Text>{item}</Text>
+                    <Text style = {globalStyles.text}>{item}</Text>
                 </View>
                 <View>
-                    <Text>
+                    <Text style = {globalStyles.bodyText}>
                         Due: {formatDate}
                     </Text>
-                    <Text>
+                    <Text style = {globalStyles.bodyText}>
                         Pickup: {pickupLocation}
                     </Text>
                 </View>

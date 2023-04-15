@@ -12,8 +12,17 @@ import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
+// Global styles
+import { useTheme } from '../../ThemeContext';
+import { createGlobalStyles } from "../../styles/globalStyles";
+
+
 
 export default function LibraryLoans({navigation}) {
+
+  const theme = useTheme();
+  const globalStyles = createGlobalStyles(theme);
+
       // Reset to menu whenever we go to another tab.
       useFocusEffect(
         useCallback(() => {
@@ -32,6 +41,7 @@ export default function LibraryLoans({navigation}) {
       );
     const user = useSelector(selectUser);
     const loans = user.libraryLoans;
+
   
     const renderItem = ({ item }) => (
       <LibraryItem 
@@ -43,35 +53,24 @@ export default function LibraryLoans({navigation}) {
     );
   
     return (
-      <SafeAreaView style={styles.container}>
-        <View>
-        <View>
-          <Text>Loans</Text>
-        </View>
-        <View style={styles.loansContainer}>
-        {!loans[0].empty ? (
-            <FlatList
-              data={loans}
-              renderItem={renderItem}
-              keyExtractor={(item) => item.item_id.toString()}
-            />
-          )  : (
-    <Text>No loans</Text>
-  )}
-</View></View>
+      <SafeAreaView style={globalStyles.container}>
+          <View>
+            <Text style={globalStyles.titleText}>Loans</Text>
+          </View>
+          <View>
+            {!loans[0].empty ? (
+              <View style = {{maxHeight:400}}>
+              <FlatList
+                data={loans}
+                renderItem={renderItem}
+                keyExtractor={(item) => item.item_id.toString()}
+              />
+              </View>
+            ) : (
+              <Text>No loans</Text>
+            )}
+          </View>
+
       </SafeAreaView>
-    );  
+    );
   }
-  const styles = StyleSheet.create({
-    container: {
-      paddingTop: 10,
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    loansContainer: {
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  });

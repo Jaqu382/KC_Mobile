@@ -8,8 +8,12 @@ import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
 
 // To reset screens
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect} from '@react-navigation/native';
 import { useCallback } from "react";
+
+// Import global styles
+import { useTheme } from '../../ThemeContext';
+import { createGlobalStyles } from '../../styles/globalStyles';
 
 export default function LibraryFees({ navigation }) {
     // Reset to menu whenever we go to another tab.
@@ -31,22 +35,16 @@ export default function LibraryFees({ navigation }) {
   const user = useSelector(selectUser);
   const fineBalance = user.fineBalance;
   const kcBalance = user.kcBalance.balance.balance;
+
+  const theme = useTheme();
+  const globalStyles = createGlobalStyles(theme);
+
   return (
-    <SafeAreaView style = {styles.container}>
+    <SafeAreaView style={globalStyles.container}>
       <View>
-        <Text>Loan balance:</Text>
+        <Text style={globalStyles.titleText}>Library Fine Balance:</Text>
       </View>
-      <BalanceCard hasBalance={fineBalance > 0} balance={fineBalance} />
+      <BalanceCard hasBalance={fineBalance > 0} balance={fineBalance} theme = {theme} />
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 10,
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-}); 

@@ -131,7 +131,9 @@ export default function KnightsCashAdd({navigation, route}){
   return (
     <SafeAreaView style={globalStyles.container}>
       {user.cardSuspended ? (
-        <Text style={globalStyles.suspendedText}>Your card is suspended.{"\n"}You cannot add funds at this time.</Text>
+        <View>
+          <Text style={globalStyles.suspendedText}>Your card is suspended.{"\n"}You cannot add funds at this time.</Text>
+        </View>
       ) : (
         <View>
           <View>
