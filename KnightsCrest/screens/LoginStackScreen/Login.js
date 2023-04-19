@@ -80,6 +80,14 @@ export default function Login({navigation, onLoginSuccess}) {
     return hashedBase64;
   }
 
+  function onFocus(setter){
+    setter(styles.fieldInputFocus);
+  };
+
+  function onBlur(setter){
+    setter(styles.fieldInput);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -88,23 +96,21 @@ export default function Login({navigation, onLoginSuccess}) {
           <View>
             <Text style={styles.fieldTitle}>Account</Text>
             <TextInput
-              placeholder='Username: NID or DTC-Atlas ID'
-              onChangeText={(text) => {
-                setAccount(text);
-                setAccountFocus(styles.fieldInputFocus);
-              }}
+              placeholder="Username: NID or DTC-Atlas ID"
+              onChangeText={(text) => setAccount(text)}
               style={accountIsFocus}
+              onFocus={() => onFocus(setAccountFocus)}
+              onBlur={() => onBlur(setAccountFocus)}
             />
-            <Text style={styles.fieldTitle}>Password</Text>
-            <TextInput
-              placeholder="Password"
-              secureTextEntry={true}
-              onChangeText={(text) => {
-                setPassword(text);
-                setPasswordFocus(styles.fieldInputFocus);
-              }}
-              style={passwordIsFocus}
-            />
+          <Text style={styles.fieldTitle}>Password</Text>
+          <TextInput
+            placeholder="Password"
+            secureTextEntry={true}
+            onChangeText={(text) => setPassword(text)}
+            style={passwordIsFocus}
+            onFocus={() => onFocus(setPasswordFocus)}
+            onBlur={() => onBlur(setPasswordFocus)}
+          />
           <View>
             <WarningMessage message={showWarning} />
           </View>
