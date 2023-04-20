@@ -48,7 +48,7 @@ export default function AccountBalanceScreen({navigation}) {
         </View>
         <View style = {globalStyles.card}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text style={globalStyles.text}>Suspend Card</Text>
+          <Text style={globalStyles.text}>Suspend Card: </Text>
           <Switch
             onValueChange={toggleSwitch}
             value={user.cardSuspended}
@@ -65,7 +65,7 @@ export default function AccountBalanceScreen({navigation}) {
               renderItem={renderItem}
               keyExtractor={(transaction) => transaction.id.toString()
               }
-              style={{ maxHeight: transactions.length * 20 }}
+              style={{ maxHeight: 200}}
             />          
           )}
         </View>
