@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-export default function PersonalInfoCard({ user }) {
+// React redux
+import { useSelector } from "react-redux";
+import { selectUser } from '../slices/userSlice';
+
+export default function PersonalInfoCard() {
+  const user = useSelector(selectUser);
   return (
     <View style={styles.container}>
       <View style={styles.row}>

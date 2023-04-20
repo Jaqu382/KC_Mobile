@@ -14,7 +14,8 @@ import { selectUser } from '../../slices/userSlice';
 // Theme and styles
 import { useTheme } from '../../ThemeContext';
 import { createGlobalStyles } from '../../styles/globalStyles';
-import { ScrollView } from 'react-native-gesture-handler';
+
+import { Text } from 'react-native-elements';
 
 export default function HomeScreen({navigation, route}) {
 
@@ -44,12 +45,15 @@ export default function HomeScreen({navigation, route}) {
 
   return (
     <SafeAreaView style={globalStyles.container}>
-      
+        <View>
+          <Text style={globalStyles.titleText}>Welcome {user.firstName} {user.lastName}</Text>
+        </View>
       <View>
         <Animated.View style={[{transform: [{rotateY: interpolateFront}]}, styles.hidden]}>
           <IDfront
             isFlipped={isFlipped}
             profile={user.profilePicture}
+            nid = {user.nid}
             fName={user.firstName}
             lName={user.lastName}
             pronoun={user.pronoun}

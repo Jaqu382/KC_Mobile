@@ -18,6 +18,9 @@ export const createGlobalStyles = (theme) => {
       justifyContent: 'center',
       alignItems: 'center',
     },
+    icon: {
+      width: 25,
+      height: 25,},
     text: {
       fontSize: appFontSize,
       fontFamily: 'GothamMedium',
@@ -217,7 +220,7 @@ export const createGlobalStyles = (theme) => {
     cardContent: {
       backgroundColor: '#fff',
       borderRadius: 0,
-      padding: 15,
+      padding: 5,
       borderWidth: 3,
       borderRadius: 10,
       marginBottom: 10,
@@ -231,6 +234,7 @@ export const createGlobalStyles = (theme) => {
       borderWidth: 3,
       borderColor: accentBackground,
       width: 325,
+      height: 355,
       borderRadius: 10,
       shadowColor: "#000",
       shadowOffset: {

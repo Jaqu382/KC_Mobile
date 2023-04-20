@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { useSelector } from 'react-redux';  
 
@@ -16,11 +17,12 @@ export default function QR (){
     const userString = JSON.stringify(userData);
 
     return (
+    <View style = {{backgroundColor:'black', padding: 10}}>
     <QRCode
-      size={150}
+      size={265}
       value={userString}
       color="black"
       backgroundColor="white"
-    />
+    /></View>
   );
 }
