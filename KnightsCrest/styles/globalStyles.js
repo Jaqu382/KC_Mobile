@@ -157,7 +157,7 @@ export const createGlobalStyles = (theme) => {
     },
     subheadingText: {
       fontSize: 18,
-      fontWeight: "bold",
+      fontFamily: 'GothamBold',
       color: textColor,
       marginBottom: 5
     },
@@ -166,12 +166,12 @@ export const createGlobalStyles = (theme) => {
       color: textColor,
     },
     title: {
-      fontWeight: "bold",
+      fontFamily: 'GothamBold',
       fontSize: appFontSize,
       color: 'black',
     },
     subtitle: {
-      fontWeight: "bold",
+      fontFamily: 'GothamBold',
       fontSize: appFontSize - 4,
       color: 'black',
     },
@@ -195,15 +195,18 @@ export const createGlobalStyles = (theme) => {
       fontSize: appFontSize - 4,
       marginBottom: 2,
       color: 'black',
+      fontFamily: 'GothamBook',
     },
     caste: {
-      fontWeight: "bold",
+      fontFamily: 'GothamBold',
       fontSize: appFontSize,
       marginBottom: 2,
       color: 'black',
+
     },
     nameAndCaste: {
       flex: 1,
+      fontFamily: 'GothamBold',
     },
     details: {
       backgroundColor: '#fff',
@@ -212,6 +215,7 @@ export const createGlobalStyles = (theme) => {
       padding: 15,
       borderWidth: 3,
       borderColor: accentBackground,
+      
     },
     detailItem: {
       flexDirection: "row",
