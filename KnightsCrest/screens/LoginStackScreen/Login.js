@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SafeAreaView, View, TextInput, Text, Button, Image, StyleSheet } from "react-native";
+import { SafeAreaView, View, TextInput, Text, Button, Image, StyleSheet, Pressable } from "react-native";
 import { Card } from '@rneui/themed';
 import { Linking } from "react-native";
 
@@ -117,12 +117,13 @@ export default function Login({navigation, onLoginSuccess}) {
           </View>
           </View>
           <View style={{ paddingTop: 10 }}>
-            <Button
-              color={"#000"}
-              title="Sign On"
-              accessibilityLabel="Sign On"
-              onPress={() => validatePassword()}
-            ></Button>
+          <Pressable
+            style={styles.signOnButton}
+            onPress={() => validatePassword()}
+            accessibilityLabel="Sign On"
+          >
+          <Text style={styles.signOnButtonText}>Sign On</Text>
+          </Pressable>
           </View>
         </Card>
       </View>
@@ -174,5 +175,16 @@ const styles = StyleSheet.create({
     tabHorizontal: {
         width:313,
         height:76  
+    },
+    signOnButton: {
+      backgroundColor: '#000',
+      padding: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 5,
+    },
+    signOnButtonText: {
+      color: '#fff',
+      fontSize: 16,
     }
   });

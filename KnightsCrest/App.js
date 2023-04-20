@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
-import { View } from 'react-native';
+import { View, Platform  } from 'react-native';
 
 // Storage
 import store from './store';
@@ -73,7 +73,6 @@ function App() {
       'GothamBold': require('./assets/fonts/GothamBold.ttf'),
       'GothamBook': require('./assets/fonts/GothamBook.ttf'),
       'GothamMedium': require('./assets/fonts/GothamMedium.ttf'),
-      // Add more fonts if needed
     });
     setFontsLoaded(true);
     SplashScreen.hideAsync();
@@ -91,10 +90,11 @@ function App() {
           {isLoggedIn ? (
             <Stack.Navigator
               screenOptions={{
-                headerStyle: { backgroundColor: '#FFC904' },
-                headerTitleStyle: {fontFamily: 'GothamBold',  }
+              headerStyle: { backgroundColor: '#FFC904' },
+              headerTitleStyle: {
+              fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold'
+              }
               }}
-              
             >
               <Stack.Screen
                 name="Knights Crest"

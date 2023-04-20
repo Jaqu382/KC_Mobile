@@ -15,6 +15,11 @@ export default function IDback() {
 
   return (
     <Card containerStyle={globalStyles.IDcard}>
+      <View>
+        <Text style={globalStyles.title}>
+          Scan to view user:
+        </Text>
+      </View>
 
     <QR/>
 

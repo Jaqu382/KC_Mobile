@@ -48,11 +48,9 @@ const SettingsScreen = () => {
       <FontSizeButton size={24} onPress={handleFontSizeChange} isActive={appFontSize === 24} />
     </View>
     
-      <View style = {globalStyles.divider}></View>
       {/* Dark Mode */}
      
         <Text style={globalStyles.subheadingText}>Dark Mode</Text>
-        
         <Switch 
           trackColor={{ false: '#767577', true: '#81b0ff' }}
           thumbColor={isDarkModeEnabled ? '#f5dd4b' : '#f4f3f4'}
@@ -61,7 +59,6 @@ const SettingsScreen = () => {
           value={isDarkModeEnabled}
         />
       
-      <View style = {globalStyles.divider}></View>
       {/* Support Links */}
       
         <Text style={globalStyles.subheadingText}>Knights Crest Support</Text>
@@ -88,7 +85,6 @@ const SettingsScreen = () => {
           />
         </View>
   
-      <View style = {globalStyles.divider}></View>
       
         <Text style={globalStyles.subheadingText}>Support Center Hours</Text>
         <Text style = {globalStyles.smallText}>7:00AM - 10:00PM, Monday - Friday</Text>

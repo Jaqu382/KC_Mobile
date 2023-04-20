@@ -1,16 +1,17 @@
 import { StyleSheet, Text, View, Linking, Pressable} from 'react-native';
+import { Platform } from 'react-native';
 
 export default function SupportLink(props){
     const {heading, supportText, link} = props
     return(
         <Pressable style = {styles.linkBox} onPress={()=>{Linking.openURL(link)}}>
             <View>
-                <Text style = {{fontFamily: "GothamBook"}}>
+                <Text style = {{fontFamily:  Platform.OS === 'ios' ? 'System' : 'GothamBold'}}>
                     {heading}
                 </Text>
             </View>
             <View>
-                <Text style = {{fontFamily: "GothamBook"}}>
+                <Text style = {{fontFamily:  Platform.OS === 'ios' ? 'System' : 'GothamBold'}}>
                     {supportText}
                 </Text>
             </View>

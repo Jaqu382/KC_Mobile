@@ -47,8 +47,8 @@ export default function AccountBalanceScreen({navigation}) {
           <Text style={globalStyles.text}>Account Balance: ${user.kcBalance.balance}</Text>
         </View>
         <View style = {globalStyles.card}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={globalStyles.text}>Suspend Card</Text>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Switch
             onValueChange={toggleSwitch}
             value={user.cardSuspended}

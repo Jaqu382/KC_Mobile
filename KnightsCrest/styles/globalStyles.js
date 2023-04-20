@@ -1,5 +1,6 @@
 // globalStyles.js
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+
 
 export const createGlobalStyles = (theme) => {
   const { appFontSize, isDarkModeEnabled } = theme;
@@ -23,7 +24,7 @@ export const createGlobalStyles = (theme) => {
       height: 25,},
     text: {
       fontSize: appFontSize,
-      fontFamily: 'GothamMedium',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamMedium',
       color: '#333'
     },
     smallText: {
@@ -32,19 +33,19 @@ export const createGlobalStyles = (theme) => {
     },
     bodyText: {
       fontSize: appFontSize,
-      fontFamily: 'GothamBook',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBook',
       color: '#333'
     },
     suspendedText: {
       fontSize: appFontSize + 2,
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       color: textColor,
       textAlign: 'center',
       marginBottom: 20,
     },
     titleText:{
       fontSize: appFontSize + 4,
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       color: titleTextColor,
       marginBottom: 20,
     },
@@ -141,7 +142,7 @@ export const createGlobalStyles = (theme) => {
       boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
     },
     fieldTitle: {
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       fontSize: appFontSize,
     },
     fieldInputFocus: {
@@ -157,7 +158,7 @@ export const createGlobalStyles = (theme) => {
     },
     subheadingText: {
       fontSize: 18,
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       color: textColor,
       marginBottom: 5
     },
@@ -166,12 +167,12 @@ export const createGlobalStyles = (theme) => {
       color: textColor,
     },
     title: {
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       fontSize: appFontSize,
       color: 'black',
     },
     subtitle: {
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       fontSize: appFontSize - 4,
       color: 'black',
     },
@@ -195,10 +196,10 @@ export const createGlobalStyles = (theme) => {
       fontSize: appFontSize - 4,
       marginBottom: 2,
       color: 'black',
-      fontFamily: 'GothamBook',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBook',
     },
     caste: {
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
       fontSize: appFontSize,
       marginBottom: 2,
       color: 'black',
@@ -206,7 +207,7 @@ export const createGlobalStyles = (theme) => {
     },
     nameAndCaste: {
       flex: 1,
-      fontFamily: 'GothamBold',
+      fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBold',
     },
     details: {
       backgroundColor: '#fff',
