@@ -193,7 +193,7 @@ export const createGlobalStyles = (theme) => {
       marginRight: 20,
     },
     userProps: {
-      fontSize: appFontSize - 4,
+      fontSize: appFontSize - 5,
       marginBottom: 2,
       color: 'black',
       fontFamily: Platform.OS === 'ios' ? 'System' : 'GothamBook',
