@@ -14,6 +14,7 @@ import { selectUser } from '../../slices/userSlice';
 // Theme and styles
 import { useTheme } from '../../ThemeContext';
 import { createGlobalStyles } from '../../styles/globalStyles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function HomeScreen({navigation, route}) {
 
@@ -43,6 +44,7 @@ export default function HomeScreen({navigation, route}) {
 
   return (
     <SafeAreaView style={globalStyles.container}>
+      
       <View>
         <Animated.View style={[{transform: [{rotateY: interpolateFront}]}, styles.hidden]}>
           <IDfront
@@ -50,6 +52,7 @@ export default function HomeScreen({navigation, route}) {
             profile={user.profilePicture}
             fName={user.firstName}
             lName={user.lastName}
+            pronoun={user.pronoun}
             kCashNum={user.knightsCashAccount}
             libNumber={user.libraryAccount}
             UCFID={user.ucfId}
@@ -57,16 +60,11 @@ export default function HomeScreen({navigation, route}) {
             expDate={user.expirationDate}/>
         </Animated.View>
         <Animated.View style={[{transform: [{rotateY: interpolateBack}]}, styles.back, styles.hidden]}>
-          <IDback
-            isFlipped={isFlipped}
-            user={user}/>
+          <IDback isFlipped={isFlipped}/>
         </Animated.View>
       </View>
       <View style={{paddingTop: 10}}>
         <YellowButton title="View QR Code" onPress={handleFlip}></YellowButton>
-      </View>
-      <View style={{paddingTop: 10}}>
-        <PersonalInfoCard user={user}></PersonalInfoCard>
       </View>
     </SafeAreaView>
   );

@@ -2,10 +2,6 @@ import { Card } from "@rneui/themed";
 import { View, Text, StyleSheet, SafeAreaView, FlatList } from "react-native";
 import LibraryReqItem from "../../components/LibraryReqItem";
 
-// To reset screens
-import { useFocusEffect } from '@react-navigation/native';
-import { useCallback } from "react";
-
 import React, { useEffect } from 'react';
 
 // Redux
@@ -17,21 +13,7 @@ import { useTheme } from '../../ThemeContext';
 import { createGlobalStyles } from '../../styles/globalStyles';
 
 export default function LibraryReq({ navigation, route }) {
-  useFocusEffect(
-    useCallback(() => {
-      const unsubscribe = navigation.addListener('blur', () => {
-        navigation.reset({
-          index: 0,
-          routes: [{ name: 'Library Menu' }],
-        });
-      });
 
-      return () => {
-        unsubscribe();
-      };
-    }, [navigation])
-  );
-  
   const user = useSelector(selectUser);
   const libraryRequests = user.libraryRequests;
   const theme = useTheme();

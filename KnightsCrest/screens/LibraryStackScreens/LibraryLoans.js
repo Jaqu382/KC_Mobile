@@ -4,10 +4,6 @@ import { FlatList } from "react-native";
 
 import React, { useEffect } from 'react';
 
-// To reset screens
-import { useFocusEffect } from '@react-navigation/native';
-import { useCallback } from "react";
-
 // Redux
 import { useSelector } from "react-redux";
 import { selectUser } from '../../slices/userSlice';
@@ -23,22 +19,6 @@ export default function LibraryLoans({navigation}) {
   const theme = useTheme();
   const globalStyles = createGlobalStyles(theme);
 
-      // Reset to menu whenever we go to another tab.
-      useFocusEffect(
-        useCallback(() => {
-          const unsubscribe = navigation.addListener('blur', () => {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'Library Menu' }],
-            });
-          });
-      
-          return () => {
-            // Clean up the listener when the component is unmounted or the tab is blurred
-            unsubscribe();
-          };
-        }, [navigation])
-      );
     const user = useSelector(selectUser);
     const loans = user.libraryLoans;
 

@@ -3,9 +3,7 @@ import { Card } from "@rneui/base";
 
 import QR from "./QR";
 
-
-export default function IDback(props){
-    const {user} = props;
+export default function IDback(){
     return(
             <Card containerStyle = {styles.IDcard}>
                 <View style={{
@@ -20,7 +18,7 @@ export default function IDback(props){
                     </View>
                 
                 <View style = {{backgroundColor:  "#000", padding: 5, borderRadius: 5}}>  
-                    <QR UCFID = {user}></QR>
+                    <QR></QR>
                 </View>
                 </View>
 

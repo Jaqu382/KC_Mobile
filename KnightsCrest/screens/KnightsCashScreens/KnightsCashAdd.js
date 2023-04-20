@@ -1,9 +1,7 @@
 import { View, Text, StyleSheet, Pressable, SafeAreaView, TextInput,TouchableOpacity,} from "react-native";
 import React, {useState } from 'react';
+import { ScrollView } from "react-native-gesture-handler";
 
-// To reset screens
-import { useFocusEffect } from '@react-navigation/native';
-import { useCallback } from "react";
 
 // redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,23 +19,6 @@ export default function KnightsCashAdd({navigation, route}){
 
   const theme = useTheme();
   const globalStyles = createGlobalStyles(theme);
-
-  // Reset to menu whenever we go to another tab.
-  useFocusEffect(
-  useCallback(() => {
-    const unsubscribe = navigation.addListener('blur', () => {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Knights Cash Menu' }],
-      });
-    });
-
-    return () => {
-      // Clean up the listener when the component is unmounted or the tab is blurred
-      unsubscribe();
-    };
-  }, [navigation])
-);
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch();

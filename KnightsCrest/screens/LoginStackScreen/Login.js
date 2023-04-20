@@ -49,6 +49,7 @@ export default function Login({navigation, onLoginSuccess}) {
           nid: userNid,
           firstName: userSnapshot.child("first_name").val(),
           lastName: userSnapshot.child("last_name").val(),
+          pronoun: userSnapshot.child("pronouns").val(),
           campus: userSnapshot.child("campus").val(),
           ucfId: userSnapshot.child("ucf_id").val(),
           profilePicture: userSnapshot.child("profile_picture").val(),
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       backgroundColor: '#fff',
       fontSize: 15,
-      color: "#D4D4D4",
+     
       boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
     },
     fieldTitle: {
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       backgroundColor: '#fff',
       fontSize: 15,
-      color: "#000",
+   
       boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset"
     },
     warningText: {

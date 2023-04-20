@@ -2,111 +2,55 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import format from "date-fns/format";
 import { Card } from "@rneui/themed";
 
+// Global Styles
+import { useTheme } from "../ThemeContext";
+import { createGlobalStyles } from "../styles/globalStyles";
+
 export default function IDfront(props) {
-  const { fName, lName, kCashNum, libNumber, UCFID, caste, expDate, profile } =
+  const { fName, lName, kCashNum, libNumber, UCFID, caste, expDate, profile, pronoun } =
     props;
 
-  let myDate = new Date(expDate);
-
+  const theme = useTheme();
+  const globalStyles = createGlobalStyles(theme);
 
   return (
-    <Card containerStyle={styles.IDcard}>
-      <View
-        style={{
-          backgroundColor: "white",
-          borderRadius: 10,
-          padding: 15,
-          borderWidth: 3,
-          borderColor: "black",
-        }}
-      >
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <View>
-            <Text style={styles.userName}>
-              <Text style={styles.title}>{fName} {lName}</Text>
-            </Text>
-          </View>
-        </View>
-        <View style={styles.divider} />
-        <View style={styles.content}>
+      <Card containerStyle={globalStyles.IDcard}>
+        <View style={globalStyles.cardContent}>
           <Image
-            style={styles.profilePic}
-            source={{uri: profile}}
+            style={globalStyles.profilePic}
+            source={{ uri: profile }}
             alt="User profile picture"
           />
-          <View>
-            <Text style = {styles.caste}>{caste}</Text>
-            <Text style={styles.userProps}>
-              <Text style={styles.subtitle}>UCF ID:</Text> {UCFID}
+          <View style={globalStyles.nameAndCaste}>
+            <Text style={globalStyles.userName}>
+              <Text style={globalStyles.title}>
+                {fName} {lName}
+              </Text>
             </Text>
-            <Text style={styles.userProps}>
-              <Text style={styles.subtitle}>Library Num:</Text> {libNumber}
-            </Text>
-            <Text style={styles.userProps}>
-              <Text style={styles.subtitle}>Knights Cash:</Text> {kCashNum}
-            </Text>
-            <Text style={styles.userProps}>
-              <Text style={styles.subtitle}>Expiration:</Text> {expDate}
-            </Text>
+            <Text style={globalStyles.title}>
+                ({pronoun})
+              </Text>
+            <Text style={globalStyles.caste}>{caste}</Text>
           </View>
         </View>
-      </View>
-    </Card>
+        <View style={globalStyles.details}>
+          <View style={globalStyles.detailItem}>
+            <Text style={globalStyles.subtitle}>UCF ID: </Text>
+            <Text style={globalStyles.userProps}>{UCFID}</Text>
+          </View>
+          <View style={globalStyles.detailItem}>
+            <Text style={globalStyles.subtitle}>Library Num: </Text>
+            <Text style={globalStyles.userProps}>{libNumber}</Text>
+          </View>
+          <View style={globalStyles.detailItem}>
+            <Text style={globalStyles.subtitle}>Knights Cash: </Text>
+            <Text style={globalStyles.userProps}>{kCashNum}</Text>
+          </View>
+          <View style={globalStyles.detailItem}>
+            <Text style={globalStyles.subtitle}>Expiration: </Text>
+            <Text style={globalStyles.userProps}>{expDate}</Text>
+          </View>
+        </View>
+      </Card>
   );
 }
-
-const styles = StyleSheet.create({
-  IDcard: {
-    backgroundColor: "#FFC904",
-    width: 230,
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  title: {
-    fontWeight: "bold",
-    fontSize: 18,
-  },
-  subtitle: {
-    fontWeight: "bold",
-    fontSize: 14,
-  },
-  logo: {
-    width: 50,
-    height: 50,
-  },
-  divider: {
-    marginTop: 10,
-    marginBottom: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: "#ccc",
-  },
-  content: {
-    flexDirection: "column",
-    alignItems: "flex-start",
-  },
-  profilePic: {
-    width: 80,
-    height: 80,
-    borderRadius: 10,
-    marginRight: 20,
-  },
-  userProps: {
-    fontSize: 10,
-    marginBottom: 2,
-  },
-  caste: {
-    fontWeight: "bold",
-    fontSize: 14,
-    marginBottom: 2,
-  },
-  userName: {
-    fontSize: 14,
-  },
-});

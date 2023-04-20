@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 export const createGlobalStyles = (theme) => {
   const { appFontSize, isDarkModeEnabled } = theme;
   const backgroundColor = isDarkModeEnabled ? '#333' : '#fff';
+  const accentBackground = isDarkModeEnabled ? '#FDF1BC' : '#333'
   const cardBackgroundColor = isDarkModeEnabled ? '#fff' : '#FDF1BC';
   const titleTextColor = isDarkModeEnabled ? '#fff' : '#333';
   const buttonColor = isDarkModeEnabled ? '#fff' : '#333';
@@ -69,6 +70,8 @@ export const createGlobalStyles = (theme) => {
     },
     card: {
       padding: 15,
+      borderWidth: 3,
+      borderColor: accentBackground,
       backgroundColor: cardBackgroundColor,
       fontFamily: "GothamBook",
       borderRadius: 5,
@@ -86,6 +89,8 @@ export const createGlobalStyles = (theme) => {
     addForm: {
       padding: 15,
       backgroundColor: cardBackgroundColor,
+      borderWidth: 3,
+      borderColor: accentBackground,
       borderRadius: 5,
       marginBottom: 10,
       width: 320,
@@ -108,7 +113,6 @@ export const createGlobalStyles = (theme) => {
       borderRadius: 5,
       alignItems: 'center',
     },
-
     amountButtonSelected: {
       width: appFontSize * 3,
       padding: 10,
@@ -154,11 +158,88 @@ export const createGlobalStyles = (theme) => {
       color: textColor,
       marginBottom: 5
     },
+    userName: {
+      fontSize: appFontSize,
+      color: textColor,
+    },
+    title: {
+      fontWeight: "bold",
+      fontSize: appFontSize,
+      color: 'black',
+    },
+    subtitle: {
+      fontWeight: "bold",
+      fontSize: appFontSize - 4,
+      color: 'black',
+    },
+    logo: {
+      width: 50,
+      height: 50,
+    },
     divider: {
-      height: 2,
-      width: '90%',
-      backgroundColor: dividerColor,
-      marginBottom: 10
+      marginTop: 10,
+      marginBottom: 10,
+      borderBottomWidth: 2,
+      borderBottomColor: dividerColor,
+    },
+    profilePic: {
+      width: 80,
+      height: 80,
+      borderRadius: 10,
+      marginRight: 20,
+    },
+    userProps: {
+      fontSize: appFontSize - 4,
+      marginBottom: 2,
+      color: 'black',
+    },
+    caste: {
+      fontWeight: "bold",
+      fontSize: appFontSize,
+      marginBottom: 2,
+      color: 'black',
+    },
+    nameAndCaste: {
+      flex: 1,
+    },
+    details: {
+      backgroundColor: '#fff',
+      borderWidth: 3,
+      borderRadius: 10,
+      padding: 15,
+      borderWidth: 3,
+      borderColor: accentBackground,
+    },
+    detailItem: {
+      flexDirection: "row",
+      marginBottom: 5,
+    },
+    cardContent: {
+      backgroundColor: '#fff',
+      borderRadius: 0,
+      padding: 15,
+      borderWidth: 3,
+      borderRadius: 10,
+      marginBottom: 10,
+      borderColor: accentBackground,
+      flexDirection: "row",
+      justifyContent: "flex-start",
+      alignItems: "center",
+    },
+    IDcard: {
+      backgroundColor: "#FFC904",
+      borderWidth: 3,
+      borderColor: accentBackground,
+      width: 325,
+      borderRadius: 10,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
     },
   });
 };
