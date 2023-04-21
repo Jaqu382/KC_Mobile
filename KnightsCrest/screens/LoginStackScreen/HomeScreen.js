@@ -46,7 +46,7 @@ export default function HomeScreen({navigation, route}) {
   return (
     <SafeAreaView style={globalStyles.container}>
         <View>
-          <Text style={globalStyles.titleText}>Welcome {user.firstName} {user.lastName}</Text>
+          <Text style={globalStyles.titleText}>Welcome, {user.firstName} {user.lastName}</Text>
         </View>
       <View>
         <Animated.View style={[{transform: [{rotateY: interpolateFront}]}, styles.hidden]}>
