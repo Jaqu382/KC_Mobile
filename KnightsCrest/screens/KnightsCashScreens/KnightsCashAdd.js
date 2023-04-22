@@ -118,7 +118,7 @@ export default function KnightsCashAdd({navigation, route}){
       ) : (
         <View>
           <View>
-            <Text style={globalStyles.titleText}>Add Funds</Text>
+            <Text style={globalStyles.titleText}>Add Funds:</Text>
           </View>
           <View style = {globalStyles.addForm}>
           <Text style={globalStyles.fieldTitle}>Select an amount:</Text>

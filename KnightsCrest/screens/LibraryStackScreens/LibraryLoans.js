@@ -35,7 +35,7 @@ export default function LibraryLoans({navigation}) {
     return (
       <SafeAreaView style={globalStyles.container}>
           <View>
-            <Text style={globalStyles.titleText}>Loans</Text>
+            <Text style={globalStyles.titleText}>Loans:</Text>
           </View>
           <View style = {{maxHeight: loans.length * 200}}>
             {!loans[0].empty ? (
@@ -48,7 +48,9 @@ export default function LibraryLoans({navigation}) {
               />
               </View>
             ) : (
-              <Text>No loans</Text>
+              <View style = {globalStyles.card}>
+              <Text style = {globalStyles.text}>No loans</Text>
+              </View>
             )}
           </View>
 

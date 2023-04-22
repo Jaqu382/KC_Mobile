@@ -12,7 +12,7 @@ export default function BalanceCard(props) {
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={globalStyles.text}>Balance: </Text>
         <Text style={globalStyles.text}>
-          {hasBalance ? `$${balance.toFixed(2)}`  : "No balance at this time."}
+          {hasBalance ? `$${balance.toFixed(2)}`  : "No fees at this time."}
         </Text>
       </View>
     </Card>

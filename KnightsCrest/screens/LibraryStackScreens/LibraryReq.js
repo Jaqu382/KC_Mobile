@@ -23,7 +23,7 @@ export default function LibraryReq({ navigation, route }) {
     <SafeAreaView style={globalStyles.container}>
       
       <View style = {{marginTop: 20}}>
-        <Text style={globalStyles.titleText}>Requests</Text>
+        <Text style={globalStyles.titleText}>Requests:</Text>
       </View>
       {libraryRequests && !libraryRequests[0].empty ? (
         <View style={{ maxHeight: libraryRequests.length * 200 }}>
