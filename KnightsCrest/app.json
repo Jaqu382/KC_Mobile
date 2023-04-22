@@ -18,24 +18,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true ,
+      "bundleIdentifier": "group7.KnightsCrest",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "package": "group7.KnightsCrest",
-        "versionCode": "1",
+        "versionCode" : "1",
         "foregroundImage": "./assets/knightsCrestIcon.png",
         "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.jaqu382.KnightsCrest"
+      }
     },
     "web": {
       "favicon": "./assets/knightsCrestIcon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "cd46f0c0-0bef-453b-9577-6596556596ea"
-      }
     }
   }
 }
